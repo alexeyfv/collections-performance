@@ -10,10 +10,10 @@ namespace Benchmark;
 public class TemporaryBuffersBenchmark : BenchmarkBase
 {
     [ParamsSource(nameof(GetLengths))]
-    public override int Length { get; set; }
+    public int Length { get; set; }
 
     [GlobalSetup]
-    public override void Setup() => base.Setup();
+    public void Setup() => InitCollections(Length);
 
     [Benchmark(Baseline = true)]
     public int Default()

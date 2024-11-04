@@ -8,19 +8,24 @@ namespace Benchmark;
 [SimpleJob(iterationCount: IterationCount)]
 public class SetInitialCapacity : BenchmarkBase
 {
-    [Params(100_000)]
-    public override int Length { get; set; }
+    [Params(CollectionsLength)]
+    public int Length { get; set; }
 
     [GlobalSetup]
-    public override void Setup() => base.Setup();
+    public void Setup() => InitCollections(Length);
 
     [Benchmark(Baseline = true)]
     public int DefaultInitialCapacity()
     {
-        var list = new List<int>();
+        var list = new List<TransactionStruct>();
         for (var i = 0; i < Length; i++)
         {
-            list.Add(i);
+            list.Add(new TransactionStruct()
+            {
+                Id = Guid.Empty,
+                Amount = i,
+                Description = string.Empty
+            });
         }
         return list.Count;
     }
@@ -28,10 +33,15 @@ public class SetInitialCapacity : BenchmarkBase
     [Benchmark]
     public int GivenInitialCapacity()
     {
-        var list = new List<int>(Length);
+        var list = new List<TransactionStruct>(Length);
         for (var i = 0; i < Length; i++)
         {
-            list.Add(i);
+            list.Add(new TransactionStruct()
+            {
+                Id = Guid.Empty,
+                Amount = i,
+                Description = string.Empty
+            });
         }
         return list.Count;
     }

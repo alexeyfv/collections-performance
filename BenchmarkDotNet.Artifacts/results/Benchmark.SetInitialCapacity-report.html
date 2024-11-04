@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmark.SetInitialCapacity-20241104-200912</title>
+<title>Benchmark.SetInitialCapacity-20241104-213425</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -17,7 +17,7 @@ BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4391/23H2/2023Update/SunValley3)
 AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical cores
 .NET SDK 8.0.203
   [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
-  Job-NVFKNO : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  Job-AGPUFB : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
 </code></pre>
 <pre><code>IterationCount=25  
 </code></pre>
@@ -25,8 +25,8 @@ AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical c
 <table>
 <thead><tr><th>Method          </th><th>Length</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th><th>Alloc Ratio</th>
 </tr>
-</thead><tbody><tr><td>DefaultInitialCapacity</td><td>100000</td><td>573.0 &mu;s</td><td>17.31 &mu;s</td><td>23.11 &mu;s</td><td>baseline</td><td></td><td>86.9141</td><td>25.3906</td><td>25.3906</td><td>1024.5 KB</td><td></td>
-</tr><tr><td>GivenInitialCapacity</td><td>100000</td><td>368.3 &mu;s</td><td>4.96 &mu;s</td><td>6.62 &mu;s</td><td>-36%</td><td>4.4%</td><td>12.2070</td><td>12.2070</td><td>12.2070</td><td>390.77 KB</td><td>-62%</td>
+</thead><tbody><tr><td>DefaultInitialCapacity</td><td>100000</td><td>5.984 ms</td><td>0.6660 ms</td><td>0.8891 ms</td><td>baseline</td><td></td><td>242.1875</td><td>179.6875</td><td>179.6875</td><td>8 MB</td><td></td>
+</tr><tr><td>GivenInitialCapacity</td><td>100000</td><td>3.232 ms</td><td>0.0661 ms</td><td>0.0882 ms</td><td>-45%</td><td>14.7%</td><td>82.0313</td><td>82.0313</td><td>82.0313</td><td>3.05 MB</td><td>-62%</td>
 </tr></tbody></table>
 </body>
 </html>

@@ -11,10 +11,10 @@ namespace Benchmark;
 public class AvoidLinq_Exists : BenchmarkBase
 {
     [ParamsSource(nameof(GetLengths))]
-    public override int Length { get; set; }
+    public int Length { get; set; }
 
     [GlobalSetup]
-    public override void Setup() => base.Setup();
+    public void Setup() => InitCollections(Length);
 
     [Benchmark]
     public bool ArrayExists()

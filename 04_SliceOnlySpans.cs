@@ -12,14 +12,14 @@ public class SliceOnlySpans : BenchmarkBase
     private int _end;
 
     [ParamsSource(nameof(GetLengths))]
-    public override int Length { get; set; }
+    public int Length { get; set; }
 
     [GlobalSetup]
-    public override void Setup() 
+    public void Setup() 
     {
-        _start = 25_000;
-        _end = 75_000;
-        base.Setup();
+        _start = Length / 4;
+        _end = Length * 3 / 4;
+        InitCollections(Length);
     }
 
     [Benchmark(Baseline = true)]

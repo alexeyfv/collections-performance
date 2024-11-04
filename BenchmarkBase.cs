@@ -2,19 +2,18 @@ namespace Benchmark;
 
 public abstract class BenchmarkBase
 {
+    public const int CollectionsLength = 100_000;
     public const int IterationCount = 25;
-
-    public abstract int Length { get; set; }
 
     protected Transaction[] _transactionsArray = default!;
     protected List<Transaction> _transactionsList = default!;
     protected IEnumerable<Transaction> _transactionsIEnumerable = default!;
 
-    public virtual void Setup()
+    protected void InitCollections(int length)
     {
-        _transactionsArray = InitializeTransaction(Length).ToArray();
-        _transactionsList = InitializeTransaction(Length).ToList();
-        _transactionsIEnumerable = InitializeTransaction(Length);
+        _transactionsArray = InitializeTransaction(length).ToArray();
+        _transactionsList = InitializeTransaction(length).ToList();
+        _transactionsIEnumerable = InitializeTransaction(length);
     }
 
     public static IEnumerable<Transaction> InitializeTransaction(int length) =>
@@ -36,4 +35,10 @@ public abstract class BenchmarkBase
     }
 
     public record class Transaction(Guid Id, int Amount, string Description);
+    public struct TransactionStruct
+    {
+        public required Guid Id { get; set; }
+        public required int Amount { get; set; }
+        public required string Description{ get; set; }        
+    }
 }
