@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmark.BeCarefulWithEnumerators-20241105-004935</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4391/23H2/2023Update/SunValley3)
+AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.203
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  Job-UKUTRU : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>IterationCount=25  
+</code></pre>
+
+<table>
+<thead><tr><th>Method                </th><th>Length</th><th>Mean      </th><th>Error    </th><th>StdDev   </th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>ArrayIndexer</td><td>10</td><td>498.1 ns</td><td>4.97 ns</td><td>6.64 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>10</td><td>3,394.2 ns</td><td>43.86 ns</td><td>58.56 ns</td><td>1.5297</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>10</td><td>817.5 ns</td><td>11.09 ns</td><td>14.03 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>10</td><td>931.2 ns</td><td>15.70 ns</td><td>19.85 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>10</td><td>6,514.3 ns</td><td>96.59 ns</td><td>125.59 ns</td><td>1.9073</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>35</td><td>1,712.8 ns</td><td>17.05 ns</td><td>22.17 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>35</td><td>9,703.0 ns</td><td>225.69 ns</td><td>301.29 ns</td><td>1.5259</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>35</td><td>3,250.2 ns</td><td>41.73 ns</td><td>54.26 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>35</td><td>2,852.6 ns</td><td>63.00 ns</td><td>81.92 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>35</td><td>13,712.3 ns</td><td>368.56 ns</td><td>492.02 ns</td><td>1.9073</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>60</td><td>3,372.8 ns</td><td>28.61 ns</td><td>36.18 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>60</td><td>18,173.3 ns</td><td>458.88 ns</td><td>612.59 ns</td><td>1.5259</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>60</td><td>5,501.4 ns</td><td>94.86 ns</td><td>126.63 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>60</td><td>6,193.7 ns</td><td>200.82 ns</td><td>268.09 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>60</td><td>22,085.0 ns</td><td>687.53 ns</td><td>917.84 ns</td><td>1.8921</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>85</td><td>4,556.7 ns</td><td>53.76 ns</td><td>61.91 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>85</td><td>24,520.8 ns</td><td>372.08 ns</td><td>470.56 ns</td><td>1.5259</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>85</td><td>7,148.8 ns</td><td>107.15 ns</td><td>143.04 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>85</td><td>8,186.0 ns</td><td>306.93 ns</td><td>409.75 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>85</td><td>30,649.4 ns</td><td>1,031.97 ns</td><td>1,377.66 ns</td><td>1.8921</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>100</td><td>5,236.8 ns</td><td>121.96 ns</td><td>162.81 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>100</td><td>28,409.3 ns</td><td>279.61 ns</td><td>373.27 ns</td><td>1.5259</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>100</td><td>8,117.7 ns</td><td>231.65 ns</td><td>301.21 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>100</td><td>9,103.4 ns</td><td>419.22 ns</td><td>559.65 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>100</td><td>34,873.4 ns</td><td>1,802.24 ns</td><td>2,405.94 ns</td><td>1.8921</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>350</td><td>15,510.8 ns</td><td>167.77 ns</td><td>223.97 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>350</td><td>92,903.1 ns</td><td>1,736.98 ns</td><td>2,318.82 ns</td><td>1.4648</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>350</td><td>25,434.7 ns</td><td>370.06 ns</td><td>494.02 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>350</td><td>28,405.2 ns</td><td>319.08 ns</td><td>414.89 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>350</td><td>138,558.1 ns</td><td>4,878.23 ns</td><td>6,512.30 ns</td><td>1.7090</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>600</td><td>42,745.1 ns</td><td>936.10 ns</td><td>1,249.67 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>600</td><td>160,625.9 ns</td><td>5,139.12 ns</td><td>6,860.57 ns</td><td>1.4648</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>600</td><td>48,262.2 ns</td><td>757.75 ns</td><td>1,011.57 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>600</td><td>57,206.7 ns</td><td>538.89 ns</td><td>719.40 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>600</td><td>221,653.8 ns</td><td>7,124.07 ns</td><td>9,009.67 ns</td><td>1.7090</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>850</td><td>58,799.6 ns</td><td>551.95 ns</td><td>717.70 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>850</td><td>222,558.7 ns</td><td>3,472.27 ns</td><td>4,635.39 ns</td><td>1.4648</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>850</td><td>67,191.7 ns</td><td>1,751.78 ns</td><td>2,338.58 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>850</td><td>80,299.9 ns</td><td>1,744.05 ns</td><td>2,328.25 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>850</td><td>312,788.4 ns</td><td>16,563.97 ns</td><td>22,112.42 ns</td><td>1.4648</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>1000</td><td>70,303.8 ns</td><td>1,452.62 ns</td><td>1,939.21 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>1000</td><td>259,803.5 ns</td><td>6,996.63 ns</td><td>9,340.29 ns</td><td>1.4648</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>1000</td><td>78,915.0 ns</td><td>1,840.92 ns</td><td>2,457.58 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>1000</td><td>94,161.6 ns</td><td>1,641.67 ns</td><td>2,191.58 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>1000</td><td>330,618.1 ns</td><td>11,519.12 ns</td><td>15,377.70 ns</td><td>1.4648</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>3500</td><td>243,908.1 ns</td><td>6,971.81 ns</td><td>9,307.16 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>3500</td><td>915,624.4 ns</td><td>7,693.78 ns</td><td>10,270.97 ns</td><td>0.9766</td><td>3200 B</td>
+</tr><tr><td>ListIndexer</td><td>3500</td><td>285,840.1 ns</td><td>5,071.72 ns</td><td>6,770.60 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>3500</td><td>336,186.6 ns</td><td>6,148.66 ns</td><td>8,208.29 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>3500</td><td>1,136,554.9 ns</td><td>39,130.84 ns</td><td>52,238.55 ns</td><td>-</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>6000</td><td>517,477.2 ns</td><td>10,456.20 ns</td><td>13,596.02 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>6000</td><td>1,621,024.9 ns</td><td>16,379.21 ns</td><td>20,714.46 ns</td><td>-</td><td>3201 B</td>
+</tr><tr><td>ListIndexer</td><td>6000</td><td>715,000.3 ns</td><td>14,704.37 ns</td><td>19,629.92 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListEnumerator</td><td>6000</td><td>779,568.9 ns</td><td>8,789.49 ns</td><td>11,733.72 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>6000</td><td>1,929,728.1 ns</td><td>23,861.63 ns</td><td>30,177.32 ns</td><td>-</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>8500</td><td>987,161.0 ns</td><td>7,922.77 ns</td><td>10,301.84 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>8500</td><td>2,316,679.5 ns</td><td>56,698.12 ns</td><td>75,690.36 ns</td><td>-</td><td>3202 B</td>
+</tr><tr><td>ListIndexer</td><td>8500</td><td>1,269,667.6 ns</td><td>20,491.95 ns</td><td>27,356.16 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ListEnumerator</td><td>8500</td><td>1,239,599.1 ns</td><td>19,113.96 ns</td><td>25,516.59 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>8500</td><td>2,738,904.7 ns</td><td>61,326.64 ns</td><td>79,741.96 ns</td><td>-</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>10000</td><td>1,197,949.4 ns</td><td>17,119.53 ns</td><td>22,854.09 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>10000</td><td>2,749,271.1 ns</td><td>39,402.82 ns</td><td>52,601.63 ns</td><td>-</td><td>3202 B</td>
+</tr><tr><td>ListIndexer</td><td>10000</td><td>1,513,744.9 ns</td><td>14,287.95 ns</td><td>18,578.37 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ListEnumerator</td><td>10000</td><td>1,479,197.7 ns</td><td>32,271.37 ns</td><td>43,081.36 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>10000</td><td>3,966,895.4 ns</td><td>128,497.06 ns</td><td>171,539.90 ns</td><td>-</td><td>4000 B</td>
+</tr><tr><td>ArrayIndexer</td><td>35000</td><td>8,005,875.1 ns</td><td>36,563.23 ns</td><td>48,810.86 ns</td><td>-</td><td>3 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>35000</td><td>22,950,525.8 ns</td><td>136,974.29 ns</td><td>182,856.76 ns</td><td>-</td><td>3212 B</td>
+</tr><tr><td>ListIndexer</td><td>35000</td><td>14,557,961.7 ns</td><td>40,051.50 ns</td><td>53,467.61 ns</td><td>-</td><td>6 B</td>
+</tr><tr><td>ListEnumerator</td><td>35000</td><td>17,335,866.3 ns</td><td>63,889.17 ns</td><td>78,461.64 ns</td><td>-</td><td>12 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>35000</td><td>28,426,120.2 ns</td><td>146,836.87 ns</td><td>174,798.86 ns</td><td>-</td><td>4012 B</td>
+</tr><tr><td>ArrayIndexer</td><td>60000</td><td>25,330,850.3 ns</td><td>72,728.61 ns</td><td>89,317.27 ns</td><td>-</td><td>12 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>60000</td><td>44,287,257.6 ns</td><td>253,847.91 ns</td><td>330,074.01 ns</td><td>-</td><td>3209 B</td>
+</tr><tr><td>ListIndexer</td><td>60000</td><td>31,169,172.7 ns</td><td>181,128.16 ns</td><td>235,517.79 ns</td><td>-</td><td>25 B</td>
+</tr><tr><td>ListEnumerator</td><td>60000</td><td>36,954,319.3 ns</td><td>263,620.90 ns</td><td>333,396.06 ns</td><td>-</td><td>29 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>60000</td><td>57,495,918.4 ns</td><td>176,165.27 ns</td><td>222,792.68 ns</td><td>-</td><td>4044 B</td>
+</tr><tr><td>ArrayIndexer</td><td>85000</td><td>40,759,287.5 ns</td><td>93,644.26 ns</td><td>111,476.84 ns</td><td>-</td><td>31 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>85000</td><td>64,299,195.5 ns</td><td>599,924.30 ns</td><td>736,760.99 ns</td><td>-</td><td>3250 B</td>
+</tr><tr><td>ListIndexer</td><td>85000</td><td>46,507,209.5 ns</td><td>379,719.52 ns</td><td>493,742.67 ns</td><td>-</td><td>36 B</td>
+</tr><tr><td>ListEnumerator</td><td>85000</td><td>53,779,630.9 ns</td><td>210,301.70 ns</td><td>265,964.34 ns</td><td>-</td><td>6 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>85000</td><td>83,959,493.8 ns</td><td>282,984.11 ns</td><td>367,959.30 ns</td><td>-</td><td>4067 B</td>
+</tr><tr><td>ArrayIndexer</td><td>100000</td><td>48,193,329.5 ns</td><td>263,409.62 ns</td><td>342,506.94 ns</td><td>-</td><td>6 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>100000</td><td>74,887,824.8 ns</td><td>378,336.24 ns</td><td>478,474.25 ns</td><td>-</td><td>3257 B</td>
+</tr><tr><td>ListIndexer</td><td>100000</td><td>54,676,363.6 ns</td><td>142,719.61 ns</td><td>175,272.51 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ListEnumerator</td><td>100000</td><td>63,130,806.2 ns</td><td>255,428.42 ns</td><td>332,129.12 ns</td><td>-</td><td>50 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>100000</td><td>99,187,900.0 ns</td><td>524,509.45 ns</td><td>604,025.86 ns</td><td>-</td><td>4067 B</td>
+</tr><tr><td>ArrayIndexer</td><td>350000</td><td>168,281,530.2 ns</td><td>1,095,053.70 ns</td><td>1,303,583.65 ns</td><td>-</td><td>133 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>350000</td><td>260,621,697.6 ns</td><td>1,443,100.22 ns</td><td>1,717,908.31 ns</td><td>-</td><td>3400 B</td>
+</tr><tr><td>ListIndexer</td><td>350000</td><td>193,763,337.9 ns</td><td>753,166.90 ns</td><td>924,956.67 ns</td><td>-</td><td>133 B</td>
+</tr><tr><td>ListEnumerator</td><td>350000</td><td>221,836,336.4 ns</td><td>600,774.93 ns</td><td>737,805.63 ns</td><td>-</td><td>133 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>350000</td><td>373,368,854.2 ns</td><td>2,690,204.35 ns</td><td>3,498,025.85 ns</td><td>-</td><td>4400 B</td>
+</tr><tr><td>ArrayIndexer</td><td>600000</td><td>287,756,443.2 ns</td><td>416,211.31 ns</td><td>511,144.91 ns</td><td>-</td><td>200 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>600000</td><td>458,496,690.9 ns</td><td>2,688,776.42 ns</td><td>3,302,059.20 ns</td><td>-</td><td>3600 B</td>
+</tr><tr><td>ListIndexer</td><td>600000</td><td>326,693,688.6 ns</td><td>2,143,306.51 ns</td><td>2,632,173.10 ns</td><td>-</td><td>200 B</td>
+</tr><tr><td>ListEnumerator</td><td>600000</td><td>373,288,148.0 ns</td><td>1,360,233.03 ns</td><td>1,815,872.17 ns</td><td>-</td><td>400 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>600000</td><td>587,251,729.2 ns</td><td>3,191,518.72 ns</td><td>4,149,876.18 ns</td><td>-</td><td>4400 B</td>
+</tr><tr><td>ArrayIndexer</td><td>850000</td><td>408,901,778.3 ns</td><td>1,517,885.99 ns</td><td>1,919,639.93 ns</td><td>-</td><td>400 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>850000</td><td>648,242,287.0 ns</td><td>3,482,510.59 ns</td><td>4,404,261.22 ns</td><td>-</td><td>3600 B</td>
+</tr><tr><td>ListIndexer</td><td>850000</td><td>463,911,460.9 ns</td><td>5,461,174.54 ns</td><td>6,906,637.79 ns</td><td>-</td><td>400 B</td>
+</tr><tr><td>ListEnumerator</td><td>850000</td><td>534,330,141.7 ns</td><td>1,919,289.11 ns</td><td>2,495,618.19 ns</td><td>-</td><td>64 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>850000</td><td>833,037,263.6 ns</td><td>2,172,293.92 ns</td><td>2,667,772.25 ns</td><td>-</td><td>4400 B</td>
+</tr><tr><td>ArrayIndexer</td><td>1000000</td><td>479,830,560.9 ns</td><td>1,071,891.62 ns</td><td>1,355,599.81 ns</td><td>-</td><td>400 B</td>
+</tr><tr><td>ArrayAsICollectionEnumerator</td><td>1000000</td><td>759,851,912.5 ns</td><td>3,123,357.27 ns</td><td>4,061,247.04 ns</td><td>-</td><td>3600 B</td>
+</tr><tr><td>ListIndexer</td><td>1000000</td><td>543,440,975.0 ns</td><td>845,398.00 ns</td><td>973,561.59 ns</td><td>-</td><td>400 B</td>
+</tr><tr><td>ListEnumerator</td><td>1000000</td><td>627,109,636.0 ns</td><td>1,048,094.54 ns</td><td>1,399,176.23 ns</td><td>-</td><td>400 B</td>
+</tr><tr><td>ListAsICollectionEnumerator</td><td>1000000</td><td>988,868,327.3 ns</td><td>3,758,551.23 ns</td><td>4,615,838.86 ns</td><td>-</td><td>4400 B</td>
+</tr></tbody></table>
+</body>
+</html>

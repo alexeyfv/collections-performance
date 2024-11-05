@@ -1,0 +1,139 @@
+```
+
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4391/23H2/2023Update/SunValley3)
+AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.203
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  Job-UKUTRU : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+
+IterationCount=25  
+
+```
+| Method                              | Length  | Mean           | Error          | StdDev         | Gen0       | Gen1       | Gen2     | Allocated    |
+|------------------------------------ |-------- |---------------:|---------------:|---------------:|-----------:|-----------:|---------:|-------------:|
+| InitializeTransactionArrayBenchmark | 10      |       2.554 μs |      0.0367 μs |      0.0477 μs |     0.7782 |          - |        - |      1.59 KB |
+| TransactionsArraySort               | 10      |       2.835 μs |      0.0476 μs |      0.0619 μs |     0.7782 |          - |        - |      1.59 KB |
+| TransactionsListSort                | 10      |       2.864 μs |      0.0533 μs |      0.0711 μs |     0.7935 |          - |        - |      1.63 KB |
+| TransactionIEnumerableLinqOrderBy   | 10      |       3.183 μs |      0.0424 μs |      0.0536 μs |     1.1597 |          - |        - |      2.38 KB |
+| TransactionsListLinqOrderBy         | 10      |       3.223 μs |      0.0459 μs |      0.0597 μs |     1.2245 |          - |        - |      2.51 KB |
+| TransactionsArrayLinqOrderBy        | 10      |       3.242 μs |      0.0491 μs |      0.0639 μs |     1.2093 |          - |        - |      2.48 KB |
+| InitializeTransactionArrayBenchmark | 35      |       8.670 μs |      0.1752 μs |      0.2279 μs |     2.5940 |          - |        - |       5.3 KB |
+| TransactionsArraySort               | 35      |      10.229 μs |      0.2049 μs |      0.2735 μs |     2.5940 |          - |        - |       5.3 KB |
+| TransactionsListSort                | 35      |      10.341 μs |      0.2154 μs |      0.2725 μs |     2.6093 |          - |        - |      5.34 KB |
+| TransactionIEnumerableLinqOrderBy   | 35      |      10.829 μs |      0.1767 μs |      0.2358 μs |     3.5553 |          - |        - |      7.28 KB |
+| TransactionsListLinqOrderBy         | 35      |      11.173 μs |      0.2197 μs |      0.2933 μs |     3.7231 |          - |        - |      7.61 KB |
+| TransactionsArrayLinqOrderBy        | 35      |      11.141 μs |      0.2239 μs |      0.2911 μs |     3.7079 |          - |        - |      7.58 KB |
+| InitializeTransactionArrayBenchmark | 60      |      15.021 μs |      0.1591 μs |      0.2124 μs |     4.4098 |          - |        - |      9.02 KB |
+| TransactionsArraySort               | 60      |      18.179 μs |      0.3623 μs |      0.4837 μs |     4.3945 |          - |        - |      9.02 KB |
+| TransactionsListSort                | 60      |      17.831 μs |      0.4735 μs |      0.6322 μs |     4.4250 |          - |        - |      9.05 KB |
+| TransactionIEnumerableLinqOrderBy   | 60      |      18.724 μs |      0.4576 μs |      0.6109 μs |     5.5542 |          - |        - |     11.38 KB |
+| TransactionsListLinqOrderBy         | 60      |      18.870 μs |      0.3778 μs |      0.5044 μs |     5.7983 |          - |        - |      11.9 KB |
+| TransactionsArrayLinqOrderBy        | 60      |      18.880 μs |      0.3597 μs |      0.4549 μs |     5.7983 |          - |        - |     11.87 KB |
+| InitializeTransactionArrayBenchmark | 85      |      21.133 μs |      0.4390 μs |      0.5860 μs |     6.2256 |          - |        - |     12.73 KB |
+| TransactionsArraySort               | 85      |      25.368 μs |      0.2724 μs |      0.3636 μs |     6.2256 |          - |        - |     12.73 KB |
+| TransactionsListSort                | 85      |      26.264 μs |      0.2670 μs |      0.3565 μs |     6.2256 |          - |        - |     12.76 KB |
+| TransactionIEnumerableLinqOrderBy   | 85      |      27.034 μs |      0.4436 μs |      0.5921 μs |     8.0566 |          - |        - |     16.51 KB |
+| TransactionsListLinqOrderBy         | 85      |      27.088 μs |      0.2931 μs |      0.3707 μs |     8.4229 |          - |        - |     17.23 KB |
+| TransactionsArrayLinqOrderBy        | 85      |      27.132 μs |      0.3204 μs |      0.4167 μs |     8.3923 |          - |        - |      17.2 KB |
+| InitializeTransactionArrayBenchmark | 100     |      24.767 μs |      0.3029 μs |      0.4043 μs |     7.2937 |          - |        - |     14.95 KB |
+| TransactionsArraySort               | 100     |      29.736 μs |      0.3846 μs |      0.4864 μs |     7.2937 |          - |        - |     14.95 KB |
+| TransactionsListSort                | 100     |      30.328 μs |      0.3035 μs |      0.4051 μs |     7.3242 |          - |        - |     14.98 KB |
+| TransactionIEnumerableLinqOrderBy   | 100     |      30.464 μs |      0.7745 μs |      1.0339 μs |     9.2773 |          - |        - |     18.96 KB |
+| TransactionsListLinqOrderBy         | 100     |      30.919 μs |      0.8079 μs |      1.0785 μs |     9.6436 |          - |        - |      19.8 KB |
+| TransactionsArrayLinqOrderBy        | 100     |      31.488 μs |      0.4377 μs |      0.5843 μs |     9.6741 |          - |        - |     19.77 KB |
+| InitializeTransactionArrayBenchmark | 350     |      86.504 μs |      1.6432 μs |      2.0180 μs |    25.3906 |          - |        - |     52.06 KB |
+| TransactionsArraySort               | 350     |     110.283 μs |      1.6043 μs |      2.0861 μs |    25.3906 |          - |        - |     52.06 KB |
+| TransactionsListSort                | 350     |     106.572 μs |      1.5858 μs |      2.0055 μs |    25.3906 |          - |        - |     52.09 KB |
+| TransactionIEnumerableLinqOrderBy   | 350     |     112.988 μs |      1.3026 μs |      1.7390 μs |    32.2266 |          - |        - |     66.02 KB |
+| TransactionsListLinqOrderBy         | 350     |     116.912 μs |      1.2356 μs |      1.6495 μs |    33.5693 |          - |        - |     68.81 KB |
+| TransactionsArrayLinqOrderBy        | 350     |     117.899 μs |      1.0051 μs |      1.2711 μs |    33.5693 |          - |        - |     68.78 KB |
+| InitializeTransactionArrayBenchmark | 600     |     147.367 μs |      3.2684 μs |      4.3632 μs |    43.4570 |          - |        - |     89.17 KB |
+| TransactionsArraySort               | 600     |     190.167 μs |      2.7259 μs |      3.6390 μs |    43.4570 |          - |        - |     89.17 KB |
+| TransactionsListSort                | 600     |     194.230 μs |      2.9302 μs |      3.8101 μs |    43.4570 |          - |        - |      89.2 KB |
+| TransactionIEnumerableLinqOrderBy   | 600     |     204.459 μs |      2.8108 μs |      3.5547 μs |    55.9082 |     0.2441 |        - |    115.06 KB |
+| TransactionsListLinqOrderBy         | 600     |     206.650 μs |      2.2991 μs |      2.9895 μs |    58.3496 |     0.4883 |        - |     119.8 KB |
+| TransactionsArrayLinqOrderBy        | 600     |     207.428 μs |      2.9582 μs |      3.9491 μs |    58.3496 |     0.4883 |        - |    119.77 KB |
+| InitializeTransactionArrayBenchmark | 850     |     216.657 μs |      3.4339 μs |      4.5842 μs |    61.0352 |     0.4883 |        - |    126.28 KB |
+| TransactionsArraySort               | 850     |     276.852 μs |      6.9630 μs |      9.2954 μs |    54.1992 |     9.7656 |        - |    126.28 KB |
+| TransactionsListSort                | 850     |     266.909 μs |      6.9941 μs |      9.3369 μs |    58.5938 |     3.9063 |        - |    126.31 KB |
+| TransactionIEnumerableLinqOrderBy   | 850     |     295.529 μs |      8.7368 μs |     11.6634 μs |    63.4766 |    10.7422 |        - |    156.08 KB |
+| TransactionsListLinqOrderBy         | 850     |     305.327 μs |      7.2652 μs |      9.6989 μs |    61.5234 |    15.1367 |        - |    162.77 KB |
+| TransactionsArrayLinqOrderBy        | 850     |     303.501 μs |      6.4785 μs |      8.6487 μs |    61.5234 |    16.1133 |        - |    162.74 KB |
+| InitializeTransactionArrayBenchmark | 1000    |     257.990 μs |      6.0447 μs |      8.0694 μs |    57.6172 |    13.1836 |        - |    148.55 KB |
+| TransactionsArraySort               | 1000    |     322.974 μs |      8.6419 μs |     11.5367 μs |    57.6172 |    13.1836 |        - |    148.55 KB |
+| TransactionsListSort                | 1000    |     332.864 μs |      6.9447 μs |      9.2710 μs |    53.2227 |    13.1836 |        - |    148.58 KB |
+| TransactionIEnumerableLinqOrderBy   | 1000    |     360.569 μs |      7.2339 μs |      9.4061 μs |    70.8008 |    20.5078 |        - |    180.69 KB |
+| TransactionsListLinqOrderBy         | 1000    |     358.782 μs |      6.1095 μs |      8.1560 μs |    76.1719 |    16.6016 |        - |    188.55 KB |
+| TransactionsArrayLinqOrderBy        | 1000    |     360.118 μs |      8.2226 μs |     10.9770 μs |    69.8242 |    19.0430 |        - |    188.52 KB |
+| InitializeTransactionArrayBenchmark | 3500    |     919.305 μs |     12.5224 μs |     16.7170 μs |   113.2813 |    74.2188 |        - |    519.64 KB |
+| TransactionsArraySort               | 3500    |   1,217.640 μs |     27.0789 μs |     36.1495 μs |   111.3281 |    74.2188 |        - |    519.64 KB |
+| TransactionsListSort                | 3500    |   1,154.027 μs |     30.4820 μs |     40.6925 μs |   111.3281 |    76.1719 |        - |    519.67 KB |
+| TransactionIEnumerableLinqOrderBy   | 3500    |   1,355.741 μs |     23.5059 μs |     31.3797 μs |   148.4375 |    82.0313 |        - |    638.89 KB |
+| TransactionsListLinqOrderBy         | 3500    |   1,354.049 μs |     32.9363 μs |     43.9690 μs |   152.3438 |    87.8906 |        - |    666.29 KB |
+| TransactionsArrayLinqOrderBy        | 3500    |   1,340.112 μs |     28.3360 μs |     37.8277 μs |   152.3438 |    87.8906 |        - |    666.26 KB |
+| InitializeTransactionArrayBenchmark | 6000    |   1,583.648 μs |     19.9573 μs |     25.9501 μs |   167.9688 |   148.4375 |        - |    890.73 KB |
+| TransactionsArraySort               | 6000    |   1,989.453 μs |     44.8080 μs |     59.8174 μs |   167.9688 |   132.8125 |        - |    890.74 KB |
+| TransactionsListSort                | 6000    |   1,967.592 μs |     48.9660 μs |     65.3682 μs |   171.8750 |   140.6250 |        - |    890.77 KB |
+| TransactionIEnumerableLinqOrderBy   | 6000    |   2,273.887 μs |     48.7427 μs |     63.3793 μs |   195.3125 |   171.8750 |        - |   1113.07 KB |
+| TransactionsListLinqOrderBy         | 6000    |   2,355.362 μs |     53.7462 μs |     71.7497 μs |   234.3750 |   164.0625 |        - |      1160 KB |
+| TransactionsArrayLinqOrderBy        | 6000    |   2,416.146 μs |     67.6697 μs |     87.9898 μs |   238.2813 |   164.0625 |        - |   1159.97 KB |
+| InitializeTransactionArrayBenchmark | 8500    |   2,280.265 μs |     45.3750 μs |     60.5743 μs |   230.4688 |   183.5938 |        - |   1261.83 KB |
+| TransactionsArraySort               | 8500    |   2,977.312 μs |     54.4584 μs |     72.7004 μs |   230.4688 |   187.5000 |        - |   1261.83 KB |
+| TransactionsListSort                | 8500    |   2,985.313 μs |     57.7439 μs |     77.0864 μs |   230.4688 |   191.4063 |        - |   1261.86 KB |
+| TransactionIEnumerableLinqOrderBy   | 8500    |   5,506.069 μs |    154.3868 μs |    200.7465 μs |   289.0625 |   187.5000 |  62.5000 |    1651.4 KB |
+| TransactionsListLinqOrderBy         | 8500    |   5,482.231 μs |    116.5692 μs |    151.5729 μs |   304.6875 |   226.5625 |  70.3125 |   1717.91 KB |
+| TransactionsArrayLinqOrderBy        | 8500    |   5,355.581 μs |    139.3623 μs |    171.1494 μs |   296.8750 |   203.1250 |  62.5000 |   1717.85 KB |
+| InitializeTransactionArrayBenchmark | 10000   |   2,764.451 μs |     44.2255 μs |     57.5057 μs |   273.4375 |   222.6563 |        - |   1484.49 KB |
+| TransactionsArraySort               | 10000   |   3,535.429 μs |     53.9836 μs |     72.0665 μs |   273.4375 |   226.5625 |        - |   1484.49 KB |
+| TransactionsListSort                | 10000   |   3,623.391 μs |     30.2961 μs |     37.2063 μs |   273.4375 |   226.5625 |        - |   1484.52 KB |
+| TransactionIEnumerableLinqOrderBy   | 10000   |   6,821.601 μs |    183.6983 μs |    245.2320 μs |   351.5625 |   265.6250 |  70.3125 |   1897.52 KB |
+| TransactionsListLinqOrderBy         | 10000   |   6,625.557 μs |    161.2593 μs |    203.9414 μs |   351.5625 |   250.0000 |  70.3125 |    1975.7 KB |
+| TransactionsArrayLinqOrderBy        | 10000   |   6,663.307 μs |    175.8406 μs |    234.7422 μs |   351.5625 |   250.0000 |  70.3125 |   1975.71 KB |
+| InitializeTransactionArrayBenchmark | 35000   |  17,658.385 μs |    461.4620 μs |    549.3377 μs |   937.5000 |   687.5000 | 156.2500 |   5195.69 KB |
+| TransactionsArraySort               | 35000   |  22,945.952 μs |    734.0351 μs |    954.4531 μs |  1000.0000 |   593.7500 | 187.5000 |   5195.71 KB |
+| TransactionsListSort                | 35000   |  23,715.034 μs |  1,121.0931 μs |  1,496.6272 μs |   937.5000 |   687.5000 | 156.2500 |   5195.76 KB |
+| TransactionIEnumerableLinqOrderBy   | 35000   |  27,454.087 μs |    597.3287 μs |    797.4168 μs |  1062.5000 |   687.5000 | 250.0000 |   6767.68 KB |
+| TransactionsListLinqOrderBy         | 35000   |  27,256.861 μs |    990.2885 μs |  1,322.0069 μs |  1125.0000 |   750.0000 | 312.5000 |   7041.18 KB |
+| TransactionsArrayLinqOrderBy        | 35000   |  28,414.119 μs |    625.1691 μs |    834.5828 μs |  1093.7500 |   750.0000 | 281.2500 |   7040.92 KB |
+| InitializeTransactionArrayBenchmark | 60000   |  32,728.179 μs |  1,027.3209 μs |  1,371.4441 μs |  1642.8571 |   928.5714 | 285.7143 |   8906.68 KB |
+| TransactionsArraySort               | 60000   |  43,069.453 μs |  1,492.4966 μs |  1,992.4402 μs |  1692.3077 |  1000.0000 | 307.6923 |    8906.7 KB |
+| TransactionsListSort                | 60000   |  41,454.884 μs |  1,337.4975 μs |  1,739.1247 μs |  1583.3333 |  1000.0000 | 250.0000 |   8906.59 KB |
+| TransactionIEnumerableLinqOrderBy   | 60000   |  49,269.991 μs |  1,308.9560 μs |  1,747.4188 μs |  1600.0000 |   900.0000 | 200.0000 |  10869.39 KB |
+| TransactionsListLinqOrderBy         | 60000   |  51,241.160 μs |  1,304.9149 μs |  1,742.0240 μs |  1500.0000 |   800.0000 | 200.0000 |  11337.61 KB |
+| TransactionsArrayLinqOrderBy        | 60000   |  51,184.176 μs |  1,323.5005 μs |  1,766.8353 μs |  1700.0000 |  1000.0000 | 300.0000 |  11338.22 KB |
+| InitializeTransactionArrayBenchmark | 85000   |  43,739.835 μs |    838.1311 μs |  1,059.9676 μs |  2166.6667 |  1166.6667 | 250.0000 |  12617.42 KB |
+| TransactionsArraySort               | 85000   |  58,151.645 μs |  1,865.0090 μs |  2,489.7337 μs |  2111.1111 |  1111.1111 | 222.2222 |   12617.5 KB |
+| TransactionsListSort                | 85000   |  58,763.302 μs |  2,166.5451 μs |  2,892.2757 μs |  2111.1111 |  1111.1111 | 222.2222 |  12617.49 KB |
+| TransactionIEnumerableLinqOrderBy   | 85000   |  66,334.985 μs |  2,652.6963 μs |  3,449.2548 μs |  2250.0000 |  1250.0000 | 250.0000 |  15994.24 KB |
+| TransactionsListLinqOrderBy         | 85000   |  70,766.442 μs |  2,869.6262 μs |  3,731.3249 μs |  2250.0000 |  1250.0000 | 250.0000 |  16658.36 KB |
+| TransactionsArrayLinqOrderBy        | 85000   |  69,870.883 μs |  2,618.6059 μs |  3,495.7639 μs |  2250.0000 |  1250.0000 | 250.0000 |  16658.29 KB |
+| InitializeTransactionArrayBenchmark | 100000  |  52,300.264 μs |  1,722.8401 μs |  2,299.9423 μs |  2555.5556 |  1444.4444 | 333.3333 |  14844.91 KB |
+| TransactionsArraySort               | 100000  |  71,042.863 μs |  2,109.3776 μs |  2,742.7870 μs |  2500.0000 |  1375.0000 | 250.0000 |     14844 KB |
+| TransactionsListSort                | 100000  |  70,607.530 μs |  2,433.4858 μs |  3,248.6340 μs |  2500.0000 |  1375.0000 | 250.0000 |  14843.99 KB |
+| TransactionIEnumerableLinqOrderBy   | 100000  |  77,952.964 μs |  1,792.4796 μs |  2,330.7300 μs |  2571.4286 |  1428.5714 | 285.7143 |   18455.2 KB |
+| TransactionsListLinqOrderBy         | 100000  |  82,846.643 μs |  1,920.5227 μs |  2,563.8429 μs |  2666.6667 |  1500.0000 | 333.3333 |  19236.53 KB |
+| TransactionsArrayLinqOrderBy        | 100000  |  81,875.370 μs |  2,093.0279 μs |  2,794.1323 μs |  2571.4286 |  1428.5714 | 285.7143 |  19236.47 KB |
+| InitializeTransactionArrayBenchmark | 350000  | 169,450.960 μs |  3,701.8466 μs |  4,941.8593 μs |  8333.3333 |  4333.3333 | 333.3333 |  51953.93 KB |
+| TransactionsArraySort               | 350000  | 246,465.041 μs |  3,493.9705 μs |  4,418.7543 μs |  8333.3333 |  4333.3333 | 333.3333 |  51953.48 KB |
+| TransactionsListSort                | 350000  | 244,744.705 μs |  2,841.8711 μs |  3,793.8167 μs |  8333.3333 |  4333.3333 | 333.3333 |  51953.51 KB |
+| TransactionIEnumerableLinqOrderBy   | 350000  | 264,460.342 μs | 10,949.4563 μs | 14,617.2109 μs |  8000.0000 |  4000.0000 |        - |  65614.91 KB |
+| TransactionsListLinqOrderBy         | 350000  | 260,216.770 μs |  9,638.5221 μs | 12,867.1512 μs |  8000.0000 |  4000.0000 |        - |  68349.34 KB |
+| TransactionsArrayLinqOrderBy        | 350000  | 272,694.070 μs | 11,715.7841 μs | 15,640.2365 μs |  8000.0000 |  4000.0000 |        - |   68349.3 KB |
+| InitializeTransactionArrayBenchmark | 600000  | 289,840.878 μs |  3,922.7579 μs |  5,236.7696 μs | 14500.0000 |  7500.0000 | 500.0000 |  89062.98 KB |
+| TransactionsArraySort               | 600000  | 374,668.892 μs |  9,606.3764 μs | 12,824.2377 μs | 13000.0000 |  6000.0000 |        - |     89063 KB |
+| TransactionsListSort                | 600000  | 373,238.404 μs |  7,412.0896 μs |  9,894.9276 μs | 14000.0000 |  7000.0000 |        - |  89063.03 KB |
+| TransactionIEnumerableLinqOrderBy   | 600000  | 411,513.924 μs |  9,631.2674 μs | 12,857.4665 μs | 13000.0000 |  6000.0000 |        - | 114822.75 KB |
+| TransactionsListLinqOrderBy         | 600000  | 414,020.996 μs | 11,397.8231 μs | 15,215.7677 μs | 14000.0000 |  7000.0000 |        - |  119510.3 KB |
+| TransactionsArrayLinqOrderBy        | 600000  | 412,605.224 μs | 10,719.5494 μs | 14,310.2918 μs | 14000.0000 |  7000.0000 |        - | 119509.95 KB |
+| InitializeTransactionArrayBenchmark | 850000  | 328,673.580 μs |  6,529.5239 μs |  8,716.7276 μs | 19000.0000 |  9000.0000 |        - | 126172.38 KB |
+| TransactionsArraySort               | 850000  | 542,206.426 μs |  5,538.2956 μs |  7,004.1713 μs | 20000.0000 | 10000.0000 |        - | 126172.38 KB |
+| TransactionsListSort                | 850000  | 539,793.256 μs |  9,032.5583 μs | 12,058.2069 μs | 20000.0000 | 10000.0000 |        - | 126172.41 KB |
+| TransactionIEnumerableLinqOrderBy   | 850000  | 576,647.136 μs | 11,847.0648 μs | 15,815.4926 μs | 19000.0000 |  9000.0000 |        - | 155838.38 KB |
+| TransactionsListLinqOrderBy         | 850000  | 582,568.972 μs | 14,232.6505 μs | 19,000.1813 μs | 19000.0000 |  9000.0000 |        - | 162479.05 KB |
+| TransactionsArrayLinqOrderBy        | 850000  | 584,924.156 μs | 10,301.9257 μs | 13,752.7761 μs | 20000.0000 | 10000.0000 |        - |  162478.7 KB |
+| InitializeTransactionArrayBenchmark | 1000000 | 406,500.724 μs | 10,696.9398 μs | 14,280.1086 μs | 23000.0000 | 11000.0000 |        - | 148437.67 KB |
+| TransactionsArraySort               | 1000000 | 671,524.336 μs |  8,310.8921 μs | 10,206.5227 μs | 22000.0000 | 11000.0000 |        - |    148438 KB |
+| TransactionsListSort                | 1000000 | 656,042.184 μs | 12,778.8090 μs | 17,059.3444 μs | 23000.0000 | 11000.0000 |        - | 148438.03 KB |
+| TransactionIEnumerableLinqOrderBy   | 1000000 | 721,448.140 μs | 15,805.4193 μs | 21,099.7825 μs | 23000.0000 | 11000.0000 |        - | 180447.75 KB |
+| TransactionsListLinqOrderBy         | 1000000 | 717,855.691 μs | 10,787.9683 μs | 13,643.3269 μs | 23000.0000 | 11000.0000 |        - |  188260.3 KB |
+| TransactionsArrayLinqOrderBy        | 1000000 | 716,793.432 μs |  8,651.5989 μs | 11,549.6370 μs | 23000.0000 | 11000.0000 |        - | 188260.27 KB |
