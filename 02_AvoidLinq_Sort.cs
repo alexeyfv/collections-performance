@@ -21,6 +21,10 @@ public class AvoidLinq_Sort : BenchmarkBase
         InitializeTransaction(Length).ToArray().Length;
 
     [Benchmark]
+    public int InitializeTransactionListBenchmark() =>
+        InitializeTransaction(Length).ToList().Count;
+
+    [Benchmark]
     public Transaction[] TransactionsArraySort()
     {
         var collection = InitializeTransaction(Length).ToArray();

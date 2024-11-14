@@ -2,7 +2,6 @@ namespace Benchmark;
 
 public abstract class BenchmarkBase
 {
-    public const int CollectionsLength = 100_000;
     public const int IterationCount = 25;
 
     protected Transaction[] _transactionsArray = default!;
@@ -26,11 +25,11 @@ public abstract class BenchmarkBase
 
     public static IEnumerable<int> GetLengths()
     {
-        for (var i = 10; i < 100; i += 25) yield return i;
-        for (var i = 100; i < 1000; i += 250) yield return i;
-        for (var i = 1000; i < 10_000; i += 2500) yield return i;
-        for (var i = 10_000; i < 100_000; i += 25_000) yield return i;
-        for (var i = 100_000; i < 1_000_000; i += 250_000) yield return i;
+        for (var i = 10; i < 100; i += 10) yield return i;
+        for (var i = 100; i < 1000; i += 100) yield return i;
+        for (var i = 1000; i < 10_000; i += 1000) yield return i;
+        for (var i = 10_000; i < 100_000; i += 10_000) yield return i;
+        for (var i = 100_000; i < 1_000_000; i += 100_000) yield return i;
         yield return 1_000_000;
     }
 

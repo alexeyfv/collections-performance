@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmark.AvoidLinq_Exists-20241104-225955</title>
+<title>Benchmark.AvoidLinq_Exists-20241106-224227</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -17,119 +17,244 @@ BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4391/23H2/2023Update/SunValley3)
 AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical cores
 .NET SDK 8.0.203
   [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
-  Job-UKUTRU : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  Job-CPAQVT : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
 </code></pre>
 <pre><code>IterationCount=25  
 </code></pre>
 
 <table>
-<thead><tr><th>Method      </th><th>Length</th><th>Mean       </th><th>Error   </th><th>StdDev   </th><th>Gen0</th><th>Allocated</th>
+<thead><tr><th>Method      </th><th>Length</th><th>Mean       </th><th>Error    </th><th>StdDev   </th><th>Gen0</th><th>Allocated</th>
 </tr>
-</thead><tbody><tr><td>ArrayExists</td><td>10</td><td>13.304 ns</td><td>0.1802 ns</td><td>0.2405 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>10</td><td>58.742 ns</td><td>1.7084 ns</td><td>2.2807 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>10</td><td>97.327 ns</td><td>1.8671 ns</td><td>2.4925 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>10</td><td>97.330 ns</td><td>2.1410 ns</td><td>2.8581 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>10</td><td>8.732 ns</td><td>0.1776 ns</td><td>0.2371 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>35</td><td>44.674 ns</td><td>0.7663 ns</td><td>0.9964 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>35</td><td>152.128 ns</td><td>3.1385 ns</td><td>4.1897 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>35</td><td>302.315 ns</td><td>8.5138 ns</td><td>11.3657 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>35</td><td>307.544 ns</td><td>6.3688 ns</td><td>8.5022 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>35</td><td>24.744 ns</td><td>0.3689 ns</td><td>0.4665 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>60</td><td>64.739 ns</td><td>0.9309 ns</td><td>1.1773 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>60</td><td>239.097 ns</td><td>8.0436 ns</td><td>10.7380 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>60</td><td>493.354 ns</td><td>14.6953 ns</td><td>19.6178 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>60</td><td>462.928 ns</td><td>7.1634 ns</td><td>9.3144 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>60</td><td>53.983 ns</td><td>0.3923 ns</td><td>0.5101 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>85</td><td>90.590 ns</td><td>1.5084 ns</td><td>2.0137 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>85</td><td>338.144 ns</td><td>6.1288 ns</td><td>7.9692 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>85</td><td>679.389 ns</td><td>15.4791 ns</td><td>20.6642 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>85</td><td>697.723 ns</td><td>12.5279 ns</td><td>16.7244 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>85</td><td>68.868 ns</td><td>1.5671 ns</td><td>2.0377 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>100</td><td>102.892 ns</td><td>1.0171 ns</td><td>1.3579 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>100</td><td>385.906 ns</td><td>6.6549 ns</td><td>8.8841 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>100</td><td>797.971 ns</td><td>13.6338 ns</td><td>18.2007 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>100</td><td>814.578 ns</td><td>11.9441 ns</td><td>15.9451 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>100</td><td>79.473 ns</td><td>1.3296 ns</td><td>1.7750 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>350</td><td>330.645 ns</td><td>6.7640 ns</td><td>9.0297 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>350</td><td>1,315.721 ns</td><td>27.1005 ns</td><td>36.1784 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>350</td><td>2,775.130 ns</td><td>58.8540 ns</td><td>78.5685 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>350</td><td>2,762.313 ns</td><td>49.6040 ns</td><td>64.4992 ns</td><td>0.0191</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>350</td><td>237.560 ns</td><td>2.8682 ns</td><td>3.7295 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>600</td><td>573.915 ns</td><td>10.8976 ns</td><td>14.5479 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>600</td><td>2,044.148 ns</td><td>45.4866 ns</td><td>60.7233 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>600</td><td>4,679.770 ns</td><td>129.8303 ns</td><td>173.3197 ns</td><td>0.0153</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>600</td><td>4,628.914 ns</td><td>140.7498 ns</td><td>187.8970 ns</td><td>0.0153</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>600</td><td>489.428 ns</td><td>4.8491 ns</td><td>6.4734 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>850</td><td>809.971 ns</td><td>8.4080 ns</td><td>10.9327 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>850</td><td>3,167.732 ns</td><td>35.3079 ns</td><td>45.9103 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>850</td><td>6,586.816 ns</td><td>139.1448 ns</td><td>185.7543 ns</td><td>0.0153</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>850</td><td>5,896.894 ns</td><td>184.5296 ns</td><td>246.3418 ns</td><td>0.0153</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>850</td><td>684.848 ns</td><td>15.5167 ns</td><td>20.7143 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>1000</td><td>944.054 ns</td><td>10.8167 ns</td><td>13.6796 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>1000</td><td>3,426.492 ns</td><td>45.7979 ns</td><td>61.1389 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>1000</td><td>7,536.173 ns</td><td>195.8207 ns</td><td>261.4151 ns</td><td>0.0153</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>1000</td><td>7,773.149 ns</td><td>186.1938 ns</td><td>242.1046 ns</td><td>0.0153</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>1000</td><td>802.726 ns</td><td>9.3006 ns</td><td>12.4160 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>3500</td><td>3,290.900 ns</td><td>39.8428 ns</td><td>53.1889 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>3500</td><td>11,973.595 ns</td><td>176.5473 ns</td><td>223.2758 ns</td><td>0.0153</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>3500</td><td>28,681.888 ns</td><td>328.4609 ns</td><td>438.4860 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>3500</td><td>27,383.452 ns</td><td>535.1076 ns</td><td>714.3534 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>3500</td><td>2,865.361 ns</td><td>42.0280 ns</td><td>56.1062 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>6000</td><td>8,053.608 ns</td><td>187.0543 ns</td><td>249.7121 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>6000</td><td>20,872.291 ns</td><td>370.2122 ns</td><td>494.2227 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>6000</td><td>47,224.766 ns</td><td>654.7424 ns</td><td>874.0623 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>6000</td><td>44,111.297 ns</td><td>1,229.0928 ns</td><td>1,598.1680 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>6000</td><td>6,524.110 ns</td><td>68.6980 ns</td><td>89.3268 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>8500</td><td>13,179.303 ns</td><td>133.5762 ns</td><td>178.3204 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>8500</td><td>29,608.729 ns</td><td>330.5757 ns</td><td>441.3091 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>8500</td><td>62,019.893 ns</td><td>1,273.9553 ns</td><td>1,700.6939 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>8500</td><td>67,894.632 ns</td><td>1,869.0813 ns</td><td>2,495.1701 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>8500</td><td>12,328.845 ns</td><td>142.2836 ns</td><td>185.0088 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>10000</td><td>15,751.826 ns</td><td>152.4065 ns</td><td>203.4583 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>10000</td><td>34,918.701 ns</td><td>633.6458 ns</td><td>823.9186 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>10000</td><td>79,281.321 ns</td><td>998.2920 ns</td><td>1,298.0617 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>10000</td><td>80,307.164 ns</td><td>1,979.0338 ns</td><td>2,641.9535 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>10000</td><td>14,568.796 ns</td><td>147.6493 ns</td><td>197.1077 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>35000</td><td>170,454.067 ns</td><td>1,178.5310 ns</td><td>1,573.3051 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>35000</td><td>269,865.943 ns</td><td>2,186.5601 ns</td><td>2,765.2987 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>35000</td><td>346,530.078 ns</td><td>2,673.2789 ns</td><td>3,568.7509 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>35000</td><td>345,515.935 ns</td><td>2,861.6959 ns</td><td>3,619.1293 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>35000</td><td>134,669.827 ns</td><td>960.8839 ns</td><td>1,282.7525 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>60000</td><td>337,219.250 ns</td><td>2,637.3181 ns</td><td>3,429.2587 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>60000</td><td>547,444.351 ns</td><td>2,204.3372 ns</td><td>2,538.5180 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>60000</td><td>695,751.221 ns</td><td>3,206.0757 ns</td><td>3,692.1216 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>60000</td><td>700,333.421 ns</td><td>5,889.6520 ns</td><td>7,233.0222 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>ImperativeExists</td><td>60000</td><td>308,062.832 ns</td><td>956.5186 ns</td><td>1,209.6899 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>85000</td><td>494,243.852 ns</td><td>2,590.0895 ns</td><td>3,180.8628 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>85000</td><td>798,398.735 ns</td><td>2,494.7951 ns</td><td>2,969.8764 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>85000</td><td>1,005,756.250 ns</td><td>6,864.7124 ns</td><td>8,926.0659 ns</td><td>-</td><td>40 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>85000</td><td>1,037,326.307 ns</td><td>14,027.8965 ns</td><td>16,699.2144 ns</td><td>-</td><td>41 B</td>
-</tr><tr><td>ImperativeExists</td><td>85000</td><td>478,968.708 ns</td><td>1,909.4122 ns</td><td>2,273.0196 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>100000</td><td>576,657.012 ns</td><td>2,082.2548 ns</td><td>2,779.7506 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayLinqAny</td><td>100000</td><td>939,891.587 ns</td><td>1,472.2950 ns</td><td>1,695.4971 ns</td><td>-</td><td>32 B</td>
-</tr><tr><td>ListLinqAny</td><td>100000</td><td>1,183,861.646 ns</td><td>4,630.5765 ns</td><td>6,021.0579 ns</td><td>-</td><td>41 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>100000</td><td>1,187,336.961 ns</td><td>5,901.9081 ns</td><td>7,025.8023 ns</td><td>-</td><td>41 B</td>
-</tr><tr><td>ImperativeExists</td><td>100000</td><td>559,457.454 ns</td><td>1,427.4939 ns</td><td>1,856.1454 ns</td><td>-</td><td>-</td>
-</tr><tr><td>ArrayExists</td><td>350000</td><td>2,012,143.529 ns</td><td>7,376.0042 ns</td><td>9,328.2845 ns</td><td>-</td><td>2 B</td>
-</tr><tr><td>ArrayLinqAny</td><td>350000</td><td>3,245,826.350 ns</td><td>9,735.4251 ns</td><td>12,312.1967 ns</td><td>-</td><td>34 B</td>
-</tr><tr><td>ListLinqAny</td><td>350000</td><td>4,171,792.611 ns</td><td>26,037.4152 ns</td><td>33,855.9973 ns</td><td>-</td><td>43 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>350000</td><td>4,294,903.971 ns</td><td>23,950.8607 ns</td><td>31,142.8869 ns</td><td>-</td><td>43 B</td>
-</tr><tr><td>ImperativeExists</td><td>350000</td><td>1,964,774.219 ns</td><td>7,073.3199 ns</td><td>8,420.2849 ns</td><td>-</td><td>1 B</td>
-</tr><tr><td>ArrayExists</td><td>600000</td><td>3,557,703.267 ns</td><td>25,960.3096 ns</td><td>31,881.5943 ns</td><td>-</td><td>2 B</td>
-</tr><tr><td>ArrayLinqAny</td><td>600000</td><td>5,685,418.466 ns</td><td>49,687.7022 ns</td><td>61,020.9659 ns</td><td>-</td><td>44 B</td>
-</tr><tr><td>ListLinqAny</td><td>600000</td><td>6,893,664.583 ns</td><td>63,128.3588 ns</td><td>82,084.7051 ns</td><td>-</td><td>52 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>600000</td><td>6,829,343.750 ns</td><td>47,326.1861 ns</td><td>61,537.4152 ns</td><td>-</td><td>52 B</td>
-</tr><tr><td>ImperativeExists</td><td>600000</td><td>3,355,484.712 ns</td><td>5,480.5284 ns</td><td>6,730.5816 ns</td><td>-</td><td>2 B</td>
-</tr><tr><td>ArrayExists</td><td>850000</td><td>4,859,275.000 ns</td><td>36,065.0482 ns</td><td>46,894.7538 ns</td><td>-</td><td>12 B</td>
-</tr><tr><td>ArrayLinqAny</td><td>850000</td><td>7,997,495.182 ns</td><td>14,747.8425 ns</td><td>19,176.3626 ns</td><td>-</td><td>38 B</td>
-</tr><tr><td>ListLinqAny</td><td>850000</td><td>9,817,572.147 ns</td><td>53,938.1875 ns</td><td>68,214.5428 ns</td><td>-</td><td>46 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>850000</td><td>9,843,881.576 ns</td><td>73,399.2329 ns</td><td>95,439.7436 ns</td><td>-</td><td>46 B</td>
-</tr><tr><td>ImperativeExists</td><td>850000</td><td>4,765,842.510 ns</td><td>27,322.5116 ns</td><td>34,554.2318 ns</td><td>-</td><td>3 B</td>
-</tr><tr><td>ArrayExists</td><td>1000000</td><td>5,725,090.483 ns</td><td>29,105.6184 ns</td><td>35,744.3164 ns</td><td>-</td><td>12 B</td>
-</tr><tr><td>ArrayLinqAny</td><td>1000000</td><td>9,455,990.820 ns</td><td>30,208.4879 ns</td><td>39,279.5704 ns</td><td>-</td><td>38 B</td>
-</tr><tr><td>ListLinqAny</td><td>1000000</td><td>11,426,453.397 ns</td><td>77,108.0219 ns</td><td>97,516.9672 ns</td><td>-</td><td>65 B</td>
-</tr><tr><td>IEnumerableLinqAny</td><td>1000000</td><td>11,468,225.000 ns</td><td>79,276.5328 ns</td><td>103,081.8944 ns</td><td>-</td><td>65 B</td>
-</tr><tr><td>ImperativeExists</td><td>1000000</td><td>5,594,705.398 ns</td><td>18,414.3215 ns</td><td>22,614.4425 ns</td><td>-</td><td>3 B</td>
+</thead><tbody><tr><td>ArrayExists</td><td>10</td><td>12.999 ns</td><td>0.0966 ns</td><td>0.1257 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>10</td><td>59.859 ns</td><td>0.4100 ns</td><td>0.5474 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>10</td><td>103.551 ns</td><td>0.9304 ns</td><td>1.1767 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>10</td><td>101.996 ns</td><td>1.0467 ns</td><td>1.3238 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>10</td><td>8.556 ns</td><td>0.0416 ns</td><td>0.0556 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>20</td><td>26.373 ns</td><td>0.3653 ns</td><td>0.4877 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>20</td><td>97.394 ns</td><td>0.7734 ns</td><td>0.9781 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>20</td><td>178.539 ns</td><td>2.0501 ns</td><td>2.6657 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>20</td><td>177.978 ns</td><td>1.6457 ns</td><td>2.0210 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>20</td><td>14.722 ns</td><td>0.0796 ns</td><td>0.1035 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>30</td><td>37.898 ns</td><td>0.2281 ns</td><td>0.2885 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>30</td><td>133.371 ns</td><td>0.9562 ns</td><td>1.2433 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>30</td><td>255.393 ns</td><td>1.7068 ns</td><td>2.2193 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>30</td><td>240.621 ns</td><td>2.3287 ns</td><td>3.0280 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>30</td><td>32.240 ns</td><td>0.4286 ns</td><td>0.5721 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>40</td><td>49.319 ns</td><td>0.6537 ns</td><td>0.8501 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>40</td><td>169.235 ns</td><td>1.1335 ns</td><td>1.4335 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>40</td><td>334.104 ns</td><td>4.3384 ns</td><td>5.3279 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>40</td><td>309.321 ns</td><td>2.8737 ns</td><td>3.8363 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>40</td><td>34.282 ns</td><td>0.2261 ns</td><td>0.2940 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>50</td><td>57.581 ns</td><td>0.4800 ns</td><td>0.6241 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>50</td><td>205.750 ns</td><td>2.0891 ns</td><td>2.7889 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>50</td><td>406.586 ns</td><td>4.2535 ns</td><td>5.5307 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>50</td><td>409.072 ns</td><td>4.8562 ns</td><td>6.3144 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>50</td><td>44.957 ns</td><td>0.7974 ns</td><td>1.0646 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>60</td><td>67.273 ns</td><td>0.3425 ns</td><td>0.4332 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>60</td><td>243.897 ns</td><td>1.3965 ns</td><td>1.8158 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>60</td><td>487.426 ns</td><td>4.2744 ns</td><td>5.7062 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>60</td><td>484.114 ns</td><td>3.8790 ns</td><td>5.0438 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>60</td><td>53.475 ns</td><td>0.8419 ns</td><td>1.1239 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>70</td><td>75.745 ns</td><td>0.5238 ns</td><td>0.6432 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>70</td><td>277.030 ns</td><td>1.3659 ns</td><td>1.7274 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>70</td><td>518.446 ns</td><td>4.5300 ns</td><td>5.7290 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>70</td><td>558.952 ns</td><td>4.5092 ns</td><td>6.0196 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>70</td><td>59.809 ns</td><td>0.4473 ns</td><td>0.5657 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>80</td><td>83.925 ns</td><td>0.4933 ns</td><td>0.6058 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>80</td><td>314.527 ns</td><td>2.0054 ns</td><td>2.5361 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>80</td><td>638.566 ns</td><td>6.1081 ns</td><td>7.7248 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>80</td><td>592.545 ns</td><td>6.0841 ns</td><td>7.9110 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>80</td><td>65.921 ns</td><td>0.4055 ns</td><td>0.5414 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>90</td><td>95.607 ns</td><td>1.2633 ns</td><td>1.6427 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>90</td><td>355.061 ns</td><td>6.5907 ns</td><td>8.7984 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>90</td><td>716.407 ns</td><td>6.6456 ns</td><td>8.1613 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>90</td><td>681.545 ns</td><td>15.6342 ns</td><td>20.8712 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>90</td><td>72.284 ns</td><td>0.8932 ns</td><td>1.1296 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>100</td><td>103.940 ns</td><td>1.7207 ns</td><td>2.2970 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>100</td><td>393.723 ns</td><td>6.2481 ns</td><td>8.3411 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>100</td><td>787.281 ns</td><td>10.8731 ns</td><td>14.1382 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>100</td><td>803.704 ns</td><td>14.4957 ns</td><td>19.3513 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>100</td><td>78.062 ns</td><td>0.5929 ns</td><td>0.6590 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>200</td><td>194.318 ns</td><td>3.0530 ns</td><td>3.9698 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>200</td><td>702.415 ns</td><td>14.6550 ns</td><td>19.5639 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>200</td><td>1,571.752 ns</td><td>23.8523 ns</td><td>31.8422 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>200</td><td>1,461.407 ns</td><td>24.1169 ns</td><td>31.3588 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>200</td><td>140.387 ns</td><td>0.7260 ns</td><td>0.9182 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>300</td><td>282.230 ns</td><td>2.1102 ns</td><td>2.6687 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>300</td><td>1,113.107 ns</td><td>6.7471 ns</td><td>9.0072 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>300</td><td>2,310.940 ns</td><td>16.8834 ns</td><td>21.9532 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>300</td><td>2,316.099 ns</td><td>21.9161 ns</td><td>29.2573 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>300</td><td>204.539 ns</td><td>2.1049 ns</td><td>2.8100 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>400</td><td>381.179 ns</td><td>7.0921 ns</td><td>9.4677 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>400</td><td>1,494.797 ns</td><td>20.6239 ns</td><td>26.0826 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>400</td><td>3,148.567 ns</td><td>68.3604 ns</td><td>91.2592 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>400</td><td>3,109.847 ns</td><td>56.9808 ns</td><td>76.0677 ns</td><td>0.0191</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>400</td><td>273.260 ns</td><td>1.7730 ns</td><td>2.1774 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>500</td><td>479.728 ns</td><td>6.5727 ns</td><td>8.5463 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>500</td><td>1,709.551 ns</td><td>30.7383 ns</td><td>41.0347 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>500</td><td>3,852.426 ns</td><td>42.3967 ns</td><td>52.0669 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>500</td><td>3,825.146 ns</td><td>28.6875 ns</td><td>38.2970 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>500</td><td>400.752 ns</td><td>5.1441 ns</td><td>6.8673 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>600</td><td>571.965 ns</td><td>5.9560 ns</td><td>7.5324 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>600</td><td>2,214.930 ns</td><td>14.0017 ns</td><td>18.2061 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>600</td><td>4,602.644 ns</td><td>53.4057 ns</td><td>69.4425 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>600</td><td>4,590.982 ns</td><td>29.4986 ns</td><td>39.3798 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>600</td><td>485.803 ns</td><td>3.3787 ns</td><td>4.5105 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>700</td><td>666.438 ns</td><td>9.4144 ns</td><td>11.5617 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>700</td><td>2,375.738 ns</td><td>17.9145 ns</td><td>22.0006 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>700</td><td>5,436.736 ns</td><td>98.3416 ns</td><td>124.3707 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>700</td><td>5,467.524 ns</td><td>89.5867 ns</td><td>119.5957 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>700</td><td>564.020 ns</td><td>2.9057 ns</td><td>3.8790 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>800</td><td>757.543 ns</td><td>11.0185 ns</td><td>14.7094 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>800</td><td>2,972.826 ns</td><td>45.1124 ns</td><td>58.6589 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>800</td><td>6,162.698 ns</td><td>79.9734 ns</td><td>101.1408 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>800</td><td>6,191.850 ns</td><td>99.7144 ns</td><td>133.1159 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>800</td><td>646.133 ns</td><td>8.3126 ns</td><td>10.8087 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>900</td><td>855.878 ns</td><td>11.9350 ns</td><td>15.9329 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>900</td><td>3,073.168 ns</td><td>47.7227 ns</td><td>63.7085 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>900</td><td>6,918.615 ns</td><td>109.9279 ns</td><td>146.7506 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>900</td><td>6,882.451 ns</td><td>73.3206 ns</td><td>95.3375 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>900</td><td>722.041 ns</td><td>9.5034 ns</td><td>12.3571 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>1000</td><td>945.433 ns</td><td>13.7171 ns</td><td>17.3478 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>1000</td><td>3,704.784 ns</td><td>48.7881 ns</td><td>65.1308 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>1000</td><td>7,721.023 ns</td><td>128.3792 ns</td><td>171.3826 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>1000</td><td>7,718.495 ns</td><td>136.8400 ns</td><td>177.9307 ns</td><td>0.0153</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>1000</td><td>796.365 ns</td><td>13.8084 ns</td><td>18.4338 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>2000</td><td>1,881.778 ns</td><td>14.7891 ns</td><td>19.7430 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>2000</td><td>6,825.851 ns</td><td>115.6862 ns</td><td>154.4378 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>2000</td><td>15,361.927 ns</td><td>222.3198 ns</td><td>296.7906 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>2000</td><td>15,324.264 ns</td><td>162.8458 ns</td><td>211.7456 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>2000</td><td>1,635.009 ns</td><td>29.7695 ns</td><td>39.7414 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>3000</td><td>2,785.859 ns</td><td>30.1558 ns</td><td>39.2111 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>3000</td><td>10,174.938 ns</td><td>86.6228 ns</td><td>109.5501 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>3000</td><td>23,326.227 ns</td><td>384.0414 ns</td><td>512.6843 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>3000</td><td>20,453.632 ns</td><td>246.8480 ns</td><td>284.2705 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>3000</td><td>2,428.966 ns</td><td>17.4524 ns</td><td>22.6930 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>4000</td><td>3,739.524 ns</td><td>34.5032 ns</td><td>41.0736 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>4000</td><td>13,553.135 ns</td><td>183.6693 ns</td><td>245.1932 ns</td><td>0.0153</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>4000</td><td>27,518.566 ns</td><td>548.9634 ns</td><td>732.8504 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>4000</td><td>27,696.098 ns</td><td>448.0764 ns</td><td>582.6259 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>4000</td><td>3,272.060 ns</td><td>33.1961 ns</td><td>38.2287 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>5000</td><td>5,544.676 ns</td><td>35.4250 ns</td><td>43.5051 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>5000</td><td>16,905.548 ns</td><td>115.0325 ns</td><td>145.4793 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>5000</td><td>38,462.584 ns</td><td>314.6738 ns</td><td>409.1649 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>5000</td><td>35,448.059 ns</td><td>486.5926 ns</td><td>649.5873 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>5000</td><td>4,382.148 ns</td><td>43.7162 ns</td><td>58.3599 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>6000</td><td>8,063.755 ns</td><td>58.2570 ns</td><td>73.6764 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>6000</td><td>20,725.910 ns</td><td>126.2836 ns</td><td>164.2044 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>6000</td><td>47,026.114 ns</td><td>885.3307 ns</td><td>1,181.8911 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>6000</td><td>41,252.355 ns</td><td>342.6077 ns</td><td>457.3715 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>6000</td><td>6,434.286 ns</td><td>95.6425 ns</td><td>127.6800 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>7000</td><td>11,073.576 ns</td><td>435.2931 ns</td><td>581.1038 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>7000</td><td>25,814.032 ns</td><td>157.6257 ns</td><td>181.5220 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>7000</td><td>54,752.040 ns</td><td>561.8010 ns</td><td>730.5001 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>7000</td><td>50,826.749 ns</td><td>340.5005 ns</td><td>418.1652 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>7000</td><td>10,254.982 ns</td><td>92.4220 ns</td><td>123.3807 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>8000</td><td>13,547.230 ns</td><td>103.7187 ns</td><td>138.4614 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>8000</td><td>30,490.084 ns</td><td>323.8361 ns</td><td>421.0785 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>8000</td><td>57,461.392 ns</td><td>542.2971 ns</td><td>705.1395 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>8000</td><td>57,182.192 ns</td><td>434.9184 ns</td><td>550.0326 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>8000</td><td>12,652.369 ns</td><td>95.8349 ns</td><td>117.6939 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>9000</td><td>15,748.736 ns</td><td>205.4023 ns</td><td>274.2062 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>9000</td><td>34,168.213 ns</td><td>342.2459 ns</td><td>432.8316 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>9000</td><td>64,478.830 ns</td><td>600.7618 ns</td><td>781.1601 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>9000</td><td>74,081.841 ns</td><td>821.6384 ns</td><td>1,096.8638 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>9000</td><td>14,446.023 ns</td><td>81.0499 ns</td><td>108.1993 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>10000</td><td>17,385.665 ns</td><td>106.1865 ns</td><td>138.0724 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>10000</td><td>38,078.654 ns</td><td>302.0341 ns</td><td>370.9250 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>10000</td><td>71,818.655 ns</td><td>690.0031 ns</td><td>921.1344 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>10000</td><td>79,776.835 ns</td><td>686.2488 ns</td><td>892.3174 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>10000</td><td>16,321.839 ns</td><td>124.9446 ns</td><td>162.4633 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>20000</td><td>35,531.606 ns</td><td>378.0471 ns</td><td>504.6821 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>20000</td><td>77,813.913 ns</td><td>442.9274 ns</td><td>560.1614 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>20000</td><td>149,218.659 ns</td><td>1,745.7232 ns</td><td>2,207.7811 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>20000</td><td>148,306.156 ns</td><td>3,548.2524 ns</td><td>4,223.9424 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>20000</td><td>33,109.106 ns</td><td>356.2919 ns</td><td>424.1402 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>30000</td><td>112,630.240 ns</td><td>852.7386 ns</td><td>982.0150 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>30000</td><td>211,975.798 ns</td><td>1,708.0857 ns</td><td>2,160.1817 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>30000</td><td>280,529.703 ns</td><td>2,357.1591 ns</td><td>2,894.8033 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>30000</td><td>284,439.101 ns</td><td>1,919.2005 ns</td><td>2,495.5029 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>30000</td><td>78,723.954 ns</td><td>740.8580 ns</td><td>936.9483 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>40000</td><td>212,053.716 ns</td><td>1,442.0525 ns</td><td>1,823.7348 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>40000</td><td>340,548.060 ns</td><td>1,729.4741 ns</td><td>2,187.2312 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>40000</td><td>426,546.289 ns</td><td>2,641.6028 ns</td><td>3,042.0737 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>40000</td><td>425,674.974 ns</td><td>2,862.7933 ns</td><td>3,821.7471 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>40000</td><td>176,158.232 ns</td><td>1,480.1680 ns</td><td>1,817.7794 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>50000</td><td>285,137.290 ns</td><td>1,022.6739 ns</td><td>1,329.7650 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>50000</td><td>448,509.654 ns</td><td>2,191.3654 ns</td><td>2,849.3943 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>50000</td><td>605,056.037 ns</td><td>4,240.0699 ns</td><td>5,660.3721 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>50000</td><td>567,229.097 ns</td><td>2,392.6676 ns</td><td>2,755.3996 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>50000</td><td>244,490.867 ns</td><td>1,074.3771 ns</td><td>1,434.2627 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>60000</td><td>347,843.503 ns</td><td>1,433.5926 ns</td><td>1,913.8051 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>60000</td><td>556,397.694 ns</td><td>2,085.2236 ns</td><td>2,637.1405 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>60000</td><td>711,607.890 ns</td><td>2,282.8235 ns</td><td>2,968.3156 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>60000</td><td>709,858.501 ns</td><td>2,017.8918 ns</td><td>2,478.1525 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>60000</td><td>311,100.203 ns</td><td>1,522.6022 ns</td><td>1,979.8132 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>70000</td><td>405,874.814 ns</td><td>3,219.6892 ns</td><td>3,954.0678 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>70000</td><td>676,017.619 ns</td><td>3,467.8542 ns</td><td>4,509.1904 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>70000</td><td>833,912.132 ns</td><td>2,650.5657 ns</td><td>3,255.1330 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>70000</td><td>860,005.278 ns</td><td>5,570.9885 ns</td><td>6,841.6748 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>ImperativeExists</td><td>70000</td><td>387,052.695 ns</td><td>2,058.4010 ns</td><td>2,603.2184 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>80000</td><td>468,415.709 ns</td><td>3,550.2384 ns</td><td>4,360.0120 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>80000</td><td>754,102.565 ns</td><td>2,185.5859 ns</td><td>2,764.0665 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>80000</td><td>965,782.773 ns</td><td>4,140.9518 ns</td><td>5,085.4611 ns</td><td>-</td><td>40 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>80000</td><td>987,055.380 ns</td><td>3,155.1401 ns</td><td>3,755.9702 ns</td><td>-</td><td>41 B</td>
+</tr><tr><td>ImperativeExists</td><td>80000</td><td>450,430.454 ns</td><td>2,410.7762 ns</td><td>2,869.8578 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>90000</td><td>540,550.176 ns</td><td>5,522.5754 ns</td><td>6,359.8061 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>90000</td><td>869,222.945 ns</td><td>10,413.4988 ns</td><td>12,788.7129 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>90000</td><td>1,079,244.214 ns</td><td>4,582.2272 ns</td><td>5,958.1901 ns</td><td>-</td><td>41 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>90000</td><td>1,082,869.150 ns</td><td>7,252.3519 ns</td><td>8,906.5402 ns</td><td>-</td><td>41 B</td>
+</tr><tr><td>ImperativeExists</td><td>90000</td><td>510,636.148 ns</td><td>1,664.2130 ns</td><td>2,104.6968 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>100000</td><td>587,511.886 ns</td><td>5,512.3305 ns</td><td>7,167.5874 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayLinqAny</td><td>100000</td><td>947,443.336 ns</td><td>3,843.1928 ns</td><td>4,860.4088 ns</td><td>-</td><td>32 B</td>
+</tr><tr><td>ListLinqAny</td><td>100000</td><td>1,212,336.320 ns</td><td>5,576.8186 ns</td><td>7,052.8905 ns</td><td>-</td><td>41 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>100000</td><td>1,256,984.598 ns</td><td>28,429.1096 ns</td><td>33,842.8357 ns</td><td>-</td><td>41 B</td>
+</tr><tr><td>ImperativeExists</td><td>100000</td><td>574,601.632 ns</td><td>2,191.1525 ns</td><td>2,849.1174 ns</td><td>-</td><td>-</td>
+</tr><tr><td>ArrayExists</td><td>200000</td><td>1,192,128.198 ns</td><td>6,318.1024 ns</td><td>8,215.3185 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>200000</td><td>1,873,680.651 ns</td><td>10,035.6927 ns</td><td>12,691.9391 ns</td><td>-</td><td>33 B</td>
+</tr><tr><td>ListLinqAny</td><td>200000</td><td>2,435,523.344 ns</td><td>13,405.0666 ns</td><td>16,953.1186 ns</td><td>-</td><td>42 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>200000</td><td>2,430,221.211 ns</td><td>19,623.1524 ns</td><td>26,196.3470 ns</td><td>-</td><td>42 B</td>
+</tr><tr><td>ImperativeExists</td><td>200000</td><td>1,140,730.227 ns</td><td>4,458.5068 ns</td><td>5,638.5840 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ArrayExists</td><td>300000</td><td>1,762,518.801 ns</td><td>6,240.1186 ns</td><td>8,330.3798 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>300000</td><td>2,803,009.812 ns</td><td>15,641.9575 ns</td><td>18,620.6394 ns</td><td>-</td><td>34 B</td>
+</tr><tr><td>ListLinqAny</td><td>300000</td><td>3,579,109.863 ns</td><td>20,288.0275 ns</td><td>26,380.1687 ns</td><td>-</td><td>42 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>300000</td><td>3,694,812.891 ns</td><td>68,914.9237 ns</td><td>84,633.7226 ns</td><td>-</td><td>42 B</td>
+</tr><tr><td>ImperativeExists</td><td>300000</td><td>1,703,884.073 ns</td><td>17,332.4551 ns</td><td>21,285.8132 ns</td><td>-</td><td>1 B</td>
+</tr><tr><td>ArrayExists</td><td>400000</td><td>2,375,532.422 ns</td><td>8,281.9428 ns</td><td>10,768.8660 ns</td><td>-</td><td>2 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>400000</td><td>3,717,089.793 ns</td><td>27,480.7094 ns</td><td>34,754.3014 ns</td><td>-</td><td>34 B</td>
+</tr><tr><td>ListLinqAny</td><td>400000</td><td>5,062,537.760 ns</td><td>43,114.1053 ns</td><td>56,060.5199 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>400000</td><td>5,150,314.347 ns</td><td>37,942.3209 ns</td><td>46,596.5815 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>ImperativeExists</td><td>400000</td><td>2,264,891.559 ns</td><td>17,173.7598 ns</td><td>21,719.3092 ns</td><td>-</td><td>2 B</td>
+</tr><tr><td>ArrayExists</td><td>500000</td><td>2,989,685.921 ns</td><td>13,470.4956 ns</td><td>17,515.4508 ns</td><td>-</td><td>2 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>500000</td><td>4,780,551.265 ns</td><td>18,269.4403 ns</td><td>21,748.4710 ns</td><td>-</td><td>44 B</td>
+</tr><tr><td>ListLinqAny</td><td>500000</td><td>6,064,101.136 ns</td><td>27,897.9604 ns</td><td>34,261.2038 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>500000</td><td>6,446,081.688 ns</td><td>32,997.9496 ns</td><td>44,051.3186 ns</td><td>-</td><td>42 B</td>
+</tr><tr><td>ImperativeExists</td><td>500000</td><td>2,825,324.432 ns</td><td>17,585.8618 ns</td><td>21,597.0195 ns</td><td>-</td><td>2 B</td>
+</tr><tr><td>ArrayExists</td><td>600000</td><td>3,567,592.932 ns</td><td>18,308.4772 ns</td><td>21,794.9417 ns</td><td>-</td><td>3 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>600000</td><td>5,840,745.182 ns</td><td>58,096.9957 ns</td><td>75,542.5112 ns</td><td>-</td><td>44 B</td>
+</tr><tr><td>ListLinqAny</td><td>600000</td><td>7,013,023.438 ns</td><td>40,553.1004 ns</td><td>51,286.6919 ns</td><td>-</td><td>44 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>600000</td><td>7,062,702.995 ns</td><td>75,914.2734 ns</td><td>98,710.0069 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>ImperativeExists</td><td>600000</td><td>3,395,421.892 ns</td><td>16,919.6123 ns</td><td>21,397.8939 ns</td><td>-</td><td>2 B</td>
+</tr><tr><td>ArrayExists</td><td>700000</td><td>4,143,103.244 ns</td><td>26,113.5848 ns</td><td>33,025.3264 ns</td><td>-</td><td>3 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>700000</td><td>6,675,790.217 ns</td><td>16,139.4240 ns</td><td>20,411.2055 ns</td><td>-</td><td>44 B</td>
+</tr><tr><td>ListLinqAny</td><td>700000</td><td>8,199,938.920 ns</td><td>43,604.1286 ns</td><td>53,549.7905 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>700000</td><td>8,235,292.448 ns</td><td>75,658.2417 ns</td><td>98,377.0934 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>ImperativeExists</td><td>700000</td><td>3,930,254.925 ns</td><td>11,140.8250 ns</td><td>14,089.5777 ns</td><td>-</td><td>3 B</td>
+</tr><tr><td>ArrayExists</td><td>800000</td><td>4,791,753.551 ns</td><td>13,290.8824 ns</td><td>16,322.3986 ns</td><td>-</td><td>12 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>800000</td><td>7,643,976.250 ns</td><td>54,567.2864 ns</td><td>62,839.7682 ns</td><td>-</td><td>44 B</td>
+</tr><tr><td>ListLinqAny</td><td>800000</td><td>9,235,024.062 ns</td><td>37,438.1811 ns</td><td>43,113.8651 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>800000</td><td>9,234,668.466 ns</td><td>53,978.2710 ns</td><td>66,290.1702 ns</td><td>-</td><td>52 B</td>
+</tr><tr><td>ImperativeExists</td><td>800000</td><td>4,511,869.837 ns</td><td>22,354.1180 ns</td><td>28,270.8042 ns</td><td>-</td><td>3 B</td>
+</tr><tr><td>ArrayExists</td><td>900000</td><td>5,263,619.973 ns</td><td>19,663.4042 ns</td><td>24,867.9125 ns</td><td>-</td><td>12 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>900000</td><td>8,579,065.439 ns</td><td>42,411.5301 ns</td><td>50,487.9141 ns</td><td>-</td><td>38 B</td>
+</tr><tr><td>ListLinqAny</td><td>900000</td><td>10,568,712.305 ns</td><td>108,532.7781 ns</td><td>141,123.2802 ns</td><td>-</td><td>46 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>900000</td><td>10,547,560.714 ns</td><td>96,394.8207 ns</td><td>114,751.1872 ns</td><td>-</td><td>65 B</td>
+</tr><tr><td>ImperativeExists</td><td>900000</td><td>5,064,015.270 ns</td><td>14,614.2963 ns</td><td>17,947.6699 ns</td><td>-</td><td>3 B</td>
+</tr><tr><td>ArrayExists</td><td>1000000</td><td>5,913,091.168 ns</td><td>44,874.6074 ns</td><td>56,752.0151 ns</td><td>-</td><td>12 B</td>
+</tr><tr><td>ArrayLinqAny</td><td>1000000</td><td>9,432,913.859 ns</td><td>41,047.4851 ns</td><td>51,911.9302 ns</td><td>-</td><td>57 B</td>
+</tr><tr><td>ListLinqAny</td><td>1000000</td><td>11,600,962.000 ns</td><td>60,749.6165 ns</td><td>81,099.0000 ns</td><td>-</td><td>65 B</td>
+</tr><tr><td>IEnumerableLinqAny</td><td>1000000</td><td>11,542,039.844 ns</td><td>59,988.7998 ns</td><td>78,002.3911 ns</td><td>-</td><td>65 B</td>
+</tr><tr><td>ImperativeExists</td><td>1000000</td><td>5,629,011.347 ns</td><td>27,125.3680 ns</td><td>32,290.8239 ns</td><td>-</td><td>3 B</td>
 </tr></tbody></table>
 </body>
 </html>

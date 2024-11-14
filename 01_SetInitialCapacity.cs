@@ -8,7 +8,7 @@ namespace Benchmark;
 [SimpleJob(iterationCount: IterationCount)]
 public class SetInitialCapacity : BenchmarkBase
 {
-    [Params(CollectionsLength)]
+    [ParamsSource(nameof(GetLengths))]
     public int Length { get; set; }
 
     [GlobalSetup]

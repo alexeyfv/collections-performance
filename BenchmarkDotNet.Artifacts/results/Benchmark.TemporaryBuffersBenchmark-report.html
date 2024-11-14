@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmark.TemporaryBuffersBenchmark-20241107-060923</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4391/23H2/2023Update/SunValley3)
+AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx, 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.203
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  Job-CPAQVT : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+</code></pre>
+<pre><code>IterationCount=25  
+</code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Length</th><th>Mean      </th><th>Error   </th><th>StdDev  </th><th>Ratio</th><th>RatioSD</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th><th>Alloc Ratio</th>
+</tr>
+</thead><tbody><tr><td>Default</td><td>10</td><td>12.067 ns</td><td>0.1385 ns</td><td>0.1801 ns</td><td>baseline</td><td></td><td>0.0306</td><td>-</td><td>-</td><td>64 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>10</td><td>30.528 ns</td><td>0.4311 ns</td><td>0.5606 ns</td><td>+153%</td><td>2.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>10</td><td>6.521 ns</td><td>0.0524 ns</td><td>0.0682 ns</td><td>-46%</td><td>1.8%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>20</td><td>18.642 ns</td><td>0.1582 ns</td><td>0.2111 ns</td><td>baseline</td><td></td><td>0.0497</td><td>-</td><td>-</td><td>104 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>20</td><td>36.556 ns</td><td>0.3549 ns</td><td>0.4614 ns</td><td>+96%</td><td>1.7%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>20</td><td>15.204 ns</td><td>0.0845 ns</td><td>0.1068 ns</td><td>-18%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>30</td><td>30.647 ns</td><td>0.3275 ns</td><td>0.4022 ns</td><td>baseline</td><td></td><td>0.0688</td><td>-</td><td>-</td><td>144 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>30</td><td>36.725 ns</td><td>0.1968 ns</td><td>0.2559 ns</td><td>+20%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>30</td><td>24.891 ns</td><td>0.3186 ns</td><td>0.4143 ns</td><td>-19%</td><td>2.1%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>40</td><td>42.675 ns</td><td>0.4536 ns</td><td>0.5736 ns</td><td>baseline</td><td></td><td>0.0880</td><td>-</td><td>-</td><td>184 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>40</td><td>58.306 ns</td><td>1.2585 ns</td><td>1.5915 ns</td><td>+37%</td><td>3.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>40</td><td>29.675 ns</td><td>0.2744 ns</td><td>0.3663 ns</td><td>-30%</td><td>1.8%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>50</td><td>49.402 ns</td><td>0.4247 ns</td><td>0.5669 ns</td><td>baseline</td><td></td><td>0.1071</td><td>-</td><td>-</td><td>224 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>50</td><td>57.702 ns</td><td>0.4442 ns</td><td>0.5930 ns</td><td>+17%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>50</td><td>34.928 ns</td><td>0.2388 ns</td><td>0.3187 ns</td><td>-29%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>60</td><td>57.885 ns</td><td>0.6112 ns</td><td>0.7947 ns</td><td>baseline</td><td></td><td>0.1262</td><td>-</td><td>-</td><td>264 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>60</td><td>57.752 ns</td><td>0.3154 ns</td><td>0.4102 ns</td><td>-0%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>60</td><td>44.243 ns</td><td>0.2540 ns</td><td>0.3390 ns</td><td>-24%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>70</td><td>65.763 ns</td><td>0.7156 ns</td><td>0.9050 ns</td><td>baseline</td><td></td><td>0.1453</td><td>-</td><td>-</td><td>304 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>70</td><td>87.187 ns</td><td>0.5252 ns</td><td>0.6252 ns</td><td>+33%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>70</td><td>51.269 ns</td><td>0.3146 ns</td><td>0.3978 ns</td><td>-22%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>80</td><td>74.295 ns</td><td>0.6578 ns</td><td>0.8554 ns</td><td>baseline</td><td></td><td>0.1644</td><td>-</td><td>-</td><td>344 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>80</td><td>87.007 ns</td><td>0.7350 ns</td><td>0.9812 ns</td><td>+17%</td><td>1.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>80</td><td>55.583 ns</td><td>0.3363 ns</td><td>0.3872 ns</td><td>-25%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>90</td><td>79.948 ns</td><td>0.6189 ns</td><td>0.8047 ns</td><td>baseline</td><td></td><td>0.1836</td><td>-</td><td>-</td><td>384 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>90</td><td>86.576 ns</td><td>0.6170 ns</td><td>0.7344 ns</td><td>+8%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>90</td><td>62.426 ns</td><td>0.4509 ns</td><td>0.5863 ns</td><td>-22%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>100</td><td>91.225 ns</td><td>5.5154 ns</td><td>6.9752 ns</td><td>baseline</td><td></td><td>0.2027</td><td>-</td><td>-</td><td>424 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>100</td><td>93.270 ns</td><td>2.4249 ns</td><td>3.0667 ns</td><td>+3%</td><td>7.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>100</td><td>66.600 ns</td><td>0.4021 ns</td><td>0.5228 ns</td><td>-27%</td><td>6.9%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>200</td><td>155.620 ns</td><td>1.2777 ns</td><td>1.5692 ns</td><td>baseline</td><td></td><td>0.3939</td><td>-</td><td>-</td><td>824 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>200</td><td>137.194 ns</td><td>0.7084 ns</td><td>0.9457 ns</td><td>-12%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>200</td><td>128.832 ns</td><td>0.6437 ns</td><td>0.8370 ns</td><td>-17%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>300</td><td>223.484 ns</td><td>1.7281 ns</td><td>2.2471 ns</td><td>baseline</td><td></td><td>0.5851</td><td>-</td><td>-</td><td>1224 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>300</td><td>247.091 ns</td><td>1.3864 ns</td><td>1.8028 ns</td><td>+11%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>300</td><td>185.373 ns</td><td>1.9069 ns</td><td>2.5456 ns</td><td>-17%</td><td>1.7%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>400</td><td>295.336 ns</td><td>2.3025 ns</td><td>3.0738 ns</td><td>baseline</td><td></td><td>0.7763</td><td>-</td><td>-</td><td>1624 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>400</td><td>249.363 ns</td><td>2.0420 ns</td><td>2.5824 ns</td><td>-16%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>400</td><td>244.738 ns</td><td>1.6185 ns</td><td>2.1606 ns</td><td>-17%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>500</td><td>365.987 ns</td><td>2.4183 ns</td><td>3.1445 ns</td><td>baseline</td><td></td><td>0.9670</td><td>-</td><td>-</td><td>2024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>500</td><td>244.734 ns</td><td>1.9255 ns</td><td>2.5037 ns</td><td>-33%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>500</td><td>302.567 ns</td><td>2.1934 ns</td><td>2.6111 ns</td><td>-17%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>600</td><td>438.345 ns</td><td>4.4526 ns</td><td>5.7897 ns</td><td>baseline</td><td></td><td>1.1587</td><td>-</td><td>-</td><td>2424 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>600</td><td>454.552 ns</td><td>2.8110 ns</td><td>3.4522 ns</td><td>+4%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>600</td><td>356.099 ns</td><td>2.6714 ns</td><td>3.5663 ns</td><td>-19%</td><td>1.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>700</td><td>509.239 ns</td><td>3.9954 ns</td><td>5.1951 ns</td><td>baseline</td><td></td><td>1.3494</td><td>-</td><td>-</td><td>2824 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>700</td><td>453.699 ns</td><td>2.5548 ns</td><td>3.4106 ns</td><td>-11%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>700</td><td>411.309 ns</td><td>3.8218 ns</td><td>4.8333 ns</td><td>-19%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>800</td><td>584.329 ns</td><td>5.0916 ns</td><td>6.7971 ns</td><td>baseline</td><td></td><td>1.5402</td><td>-</td><td>-</td><td>3224 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>800</td><td>452.821 ns</td><td>2.9123 ns</td><td>3.7868 ns</td><td>-22%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>800</td><td>474.521 ns</td><td>3.8187 ns</td><td>4.6897 ns</td><td>-19%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>900</td><td>647.522 ns</td><td>5.3905 ns</td><td>6.6200 ns</td><td>baseline</td><td></td><td>1.7328</td><td>-</td><td>-</td><td>3624 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>900</td><td>455.605 ns</td><td>4.2064 ns</td><td>5.1658 ns</td><td>-30%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>900</td><td>530.757 ns</td><td>2.9856 ns</td><td>3.7758 ns</td><td>-18%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>1000</td><td>716.152 ns</td><td>5.4940 ns</td><td>7.3343 ns</td><td>baseline</td><td></td><td>1.9226</td><td>-</td><td>-</td><td>4024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>1000</td><td>453.525 ns</td><td>2.5365 ns</td><td>3.3861 ns</td><td>-37%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>1000</td><td>584.507 ns</td><td>4.1944 ns</td><td>4.9932 ns</td><td>-18%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>2000</td><td>1,390.367 ns</td><td>7.5471 ns</td><td>9.8133 ns</td><td>baseline</td><td></td><td>3.8300</td><td>-</td><td>-</td><td>8024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>2000</td><td>872.850 ns</td><td>6.3780 ns</td><td>8.5144 ns</td><td>-37%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>2000</td><td>1,149.577 ns</td><td>7.3830 ns</td><td>9.8561 ns</td><td>-17%</td><td>1.1%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>3000</td><td>2,105.793 ns</td><td>21.2422 ns</td><td>27.6208 ns</td><td>baseline</td><td></td><td>5.7106</td><td>-</td><td>-</td><td>12024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>3000</td><td>1,705.573 ns</td><td>6.5170 ns</td><td>8.2419 ns</td><td>-19%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>3000</td><td>1,697.426 ns</td><td>9.9429 ns</td><td>12.9285 ns</td><td>-19%</td><td>1.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>4000</td><td>2,762.743 ns</td><td>16.4822 ns</td><td>19.6209 ns</td><td>baseline</td><td></td><td>7.6332</td><td>-</td><td>-</td><td>16024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>4000</td><td>1,712.733 ns</td><td>11.0727 ns</td><td>14.3976 ns</td><td>-38%</td><td>1.1%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>4000</td><td>2,271.964 ns</td><td>12.9286 ns</td><td>16.8108 ns</td><td>-18%</td><td>1.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>5000</td><td>3,383.471 ns</td><td>24.0556 ns</td><td>29.5425 ns</td><td>baseline</td><td></td><td>9.5215</td><td>-</td><td>-</td><td>20024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>5000</td><td>3,409.058 ns</td><td>20.9469 ns</td><td>27.9636 ns</td><td>+1%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>5000</td><td>2,838.346 ns</td><td>16.8816 ns</td><td>22.5365 ns</td><td>-16%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>6000</td><td>4,116.256 ns</td><td>38.2199 ns</td><td>46.9375 ns</td><td>baseline</td><td></td><td>11.3602</td><td>-</td><td>-</td><td>24024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>6000</td><td>3,412.855 ns</td><td>23.5813 ns</td><td>30.6624 ns</td><td>-17%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>6000</td><td>3,359.935 ns</td><td>19.9715 ns</td><td>23.7747 ns</td><td>-18%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>7000</td><td>4,764.205 ns</td><td>34.2179 ns</td><td>43.2747 ns</td><td>baseline</td><td></td><td>13.3286</td><td>-</td><td>-</td><td>28024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>7000</td><td>3,363.728 ns</td><td>37.3569 ns</td><td>49.8704 ns</td><td>-29%</td><td>1.7%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>7000</td><td>3,987.844 ns</td><td>37.1960 ns</td><td>45.6801 ns</td><td>-16%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>8000</td><td>5,471.417 ns</td><td>47.5575 ns</td><td>63.4880 ns</td><td>baseline</td><td></td><td>15.1443</td><td>-</td><td>-</td><td>32024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>8000</td><td>3,395.011 ns</td><td>28.8051 ns</td><td>37.4548 ns</td><td>-38%</td><td>1.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>8000</td><td>4,533.349 ns</td><td>29.0966 ns</td><td>37.8338 ns</td><td>-17%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>9000</td><td>6,142.972 ns</td><td>49.4686 ns</td><td>64.3232 ns</td><td>baseline</td><td></td><td>16.9449</td><td>-</td><td>-</td><td>36024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>9000</td><td>6,781.121 ns</td><td>44.5311 ns</td><td>57.9030 ns</td><td>+10%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>9000</td><td>5,094.695 ns</td><td>34.6362 ns</td><td>45.0369 ns</td><td>-17%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>10000</td><td>6,861.570 ns</td><td>50.2528 ns</td><td>61.7149 ns</td><td>baseline</td><td></td><td>18.8599</td><td>-</td><td>-</td><td>40024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>10000</td><td>6,778.519 ns</td><td>43.9408 ns</td><td>57.1354 ns</td><td>-1%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>10000</td><td>5,678.077 ns</td><td>47.0976 ns</td><td>59.5634 ns</td><td>-17%</td><td>1.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>20000</td><td>13,279.677 ns</td><td>68.6482 ns</td><td>89.2620 ns</td><td>baseline</td><td></td><td>37.0331</td><td>-</td><td>-</td><td>80024 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>20000</td><td>13,463.572 ns</td><td>91.7683 ns</td><td>109.2436 ns</td><td>+1%</td><td>1.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>20000</td><td>11,304.623 ns</td><td>66.5497 ns</td><td>86.5334 ns</td><td>-15%</td><td>1.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>30000</td><td>38,654.775 ns</td><td>541.1532 ns</td><td>722.4240 ns</td><td>baseline</td><td></td><td>5.9814</td><td>5.9814</td><td>5.9814</td><td>120015 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>30000</td><td>13,708.869 ns</td><td>186.9794 ns</td><td>249.6122 ns</td><td>-65%</td><td>2.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>30000</td><td>16,995.809 ns</td><td>83.6320 ns</td><td>102.7077 ns</td><td>-56%</td><td>2.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>40000</td><td>49,085.786 ns</td><td>679.3848 ns</td><td>906.9593 ns</td><td>baseline</td><td></td><td>6.1035</td><td>6.1035</td><td>6.1035</td><td>160015 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>40000</td><td>27,221.956 ns</td><td>214.5430 ns</td><td>286.4088 ns</td><td>-45%</td><td>2.1%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>40000</td><td>22,765.524 ns</td><td>244.3637 ns</td><td>317.7419 ns</td><td>-54%</td><td>2.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>50000</td><td>68,374.324 ns</td><td>3,141.9521 ns</td><td>3,973.5638 ns</td><td>baseline</td><td></td><td>7.4463</td><td>7.4463</td><td>7.4463</td><td>200016 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>50000</td><td>27,323.025 ns</td><td>327.1411 ns</td><td>425.3759 ns</td><td>-60%</td><td>5.9%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>50000</td><td>28,346.291 ns</td><td>293.9722 ns</td><td>349.9531 ns</td><td>-58%</td><td>5.8%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>60000</td><td>122,738.955 ns</td><td>4,918.6124 ns</td><td>6,566.2068 ns</td><td>baseline</td><td></td><td>8.5449</td><td>8.5449</td><td>8.5449</td><td>240018 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>60000</td><td>27,144.549 ns</td><td>266.8142 ns</td><td>356.1893 ns</td><td>-78%</td><td>5.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>60000</td><td>34,055.214 ns</td><td>159.6590 ns</td><td>196.0757 ns</td><td>-72%</td><td>5.5%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>70000</td><td>154,788.221 ns</td><td>5,061.8870 ns</td><td>6,216.4523 ns</td><td>baseline</td><td></td><td>9.7656</td><td>9.7656</td><td>9.7656</td><td>280019 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>70000</td><td>54,270.031 ns</td><td>345.1879 ns</td><td>448.8418 ns</td><td>-65%</td><td>4.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>70000</td><td>39,708.106 ns</td><td>220.4894 ns</td><td>286.6985 ns</td><td>-74%</td><td>3.9%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>80000</td><td>219,059.843 ns</td><td>11,149.1143 ns</td><td>14,883.7486 ns</td><td>baseline</td><td></td><td>10.2539</td><td>10.2539</td><td>10.2539</td><td>320021 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>80000</td><td>54,453.199 ns</td><td>545.9954 ns</td><td>709.9483 ns</td><td>-75%</td><td>7.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>80000</td><td>45,363.858 ns</td><td>368.8965 ns</td><td>466.5360 ns</td><td>-79%</td><td>7.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>90000</td><td>247,307.340 ns</td><td>14,187.4046 ns</td><td>18,447.6350 ns</td><td>baseline</td><td></td><td>10.7422</td><td>10.7422</td><td>10.7422</td><td>360021 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>90000</td><td>54,445.681 ns</td><td>481.3581 ns</td><td>608.7640 ns</td><td>-78%</td><td>7.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>90000</td><td>50,939.397 ns</td><td>457.1711 ns</td><td>578.1751 ns</td><td>-79%</td><td>7.4%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>100000</td><td>338,228.145 ns</td><td>14,477.7391 ns</td><td>18,825.1519 ns</td><td>baseline</td><td></td><td>11.2305</td><td>11.2305</td><td>11.2305</td><td>400023 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>100000</td><td>54,323.529 ns</td><td>368.8243 ns</td><td>452.9494 ns</td><td>-84%</td><td>5.9%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>100000</td><td>56,597.395 ns</td><td>334.3899 ns</td><td>410.6608 ns</td><td>-83%</td><td>5.9%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>200000</td><td>1,039,815.781 ns</td><td>14,622.2348 ns</td><td>19,520.2651 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>800030 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>200000</td><td>109,020.487 ns</td><td>673.2847 ns</td><td>826.8541 ns</td><td>-90%</td><td>2.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>200000</td><td>114,903.840 ns</td><td>1,671.5570 ns</td><td>2,173.4964 ns</td><td>-89%</td><td>2.6%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>300000</td><td>1,207,012.664 ns</td><td>8,451.5303 ns</td><td>11,282.5511 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>1200030 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>300000</td><td>220,026.227 ns</td><td>1,043.1956 ns</td><td>1,392.6363 ns</td><td>-82%</td><td>1.1%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>300000</td><td>172,678.165 ns</td><td>1,059.1229 ns</td><td>1,377.1590 ns</td><td>-86%</td><td>1.2%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Default</td><td>400000</td><td>1,454,081.945 ns</td><td>11,702.9905 ns</td><td>15,623.1575 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>1600030 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>400000</td><td>218,316.548 ns</td><td>1,431.2191 ns</td><td>1,860.9892 ns</td><td>-85%</td><td>1.3%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>400000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr><tr><td>Default</td><td>500000</td><td>1,564,246.514 ns</td><td>6,158.7504 ns</td><td>7,788.8480 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>2000030 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>500000</td><td>217,501.518 ns</td><td>1,192.5801 ns</td><td>1,325.5496 ns</td><td>-86%</td><td>0.8%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>500000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr><tr><td>Default</td><td>600000</td><td>1,843,490.820 ns</td><td>13,581.0189 ns</td><td>17,659.1622 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>2400032 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>600000</td><td>464,746.991 ns</td><td>1,765.4661 ns</td><td>2,101.6620 ns</td><td>-75%</td><td>1.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>600000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr><tr><td>Default</td><td>700000</td><td>2,123,112.593 ns</td><td>13,595.7994 ns</td><td>16,184.8335 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>2800032 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>700000</td><td>462,051.457 ns</td><td>2,147.6965 ns</td><td>2,792.6123 ns</td><td>-78%</td><td>1.0%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>700000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr><tr><td>Default</td><td>800000</td><td>2,228,113.281 ns</td><td>8,744.7085 ns</td><td>11,370.5921 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>3200031 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>800000</td><td>466,802.371 ns</td><td>2,291.8980 ns</td><td>2,639.3532 ns</td><td>-79%</td><td>0.7%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>800000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr><tr><td>Default</td><td>900000</td><td>2,278,103.609 ns</td><td>12,122.1002 ns</td><td>16,182.6569 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>3600031 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>900000</td><td>461,394.954 ns</td><td>1,519.3508 ns</td><td>1,808.6792 ns</td><td>-80%</td><td>0.8%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>900000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr><tr><td>Default</td><td>1000000</td><td>2,646,315.156 ns</td><td>21,091.9460 ns</td><td>28,157.1445 ns</td><td>baseline</td><td></td><td>15.6250</td><td>15.6250</td><td>15.6250</td><td>4000032 B</td><td></td>
+</tr><tr><td>ArrayPool</td><td>1000000</td><td>466,011.444 ns</td><td>1,771.0570 ns</td><td>2,108.3175 ns</td><td>-82%</td><td>1.1%</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-100%</td>
+</tr><tr><td>Stackalloc</td><td>1000000</td><td>NA</td><td>NA</td><td>NA</td><td>?</td><td>?</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>?</td>
+</tr></tbody></table>
+</body>
+</html>
